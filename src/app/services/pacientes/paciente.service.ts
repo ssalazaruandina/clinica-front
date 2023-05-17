@@ -23,7 +23,7 @@ export class PacienteService {
     return this.http.post(this.url, paciente);
   }
   putPaciente(id: any, paciente: any) {
-    let url = this.url + id;
+    let url = "http://localhost:8000/api/updatePaciente/"+id;
     return this.http.put<Paciente>(url, paciente);
   }
   deletePaciente(id: any) {

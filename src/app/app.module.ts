@@ -6,10 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 import { NuevoPacienteComponent } from './components/nuevo-paciente/nuevo-paciente.component';
-import { EditarPacienteComponent } from './editar-paciente/editar-paciente.component';
+import { EditarPacienteComponent } from './components/editar-paciente/editar-paciente.component';
 
 @NgModule({
-  declarations: [
+  declarations:[
     AppComponent,
     ListaPacientesComponent,
     NuevoPacienteComponent,

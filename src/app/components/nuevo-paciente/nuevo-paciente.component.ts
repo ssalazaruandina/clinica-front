@@ -4,6 +4,7 @@ import { Form} from '@angular/forms';
 import { Paciente } from 'src/app/models/paciente';
 import { PacienteService } from 'src/app/services/pacientes/paciente.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2'
 
 
 @Component({
@@ -48,12 +49,13 @@ export class NuevoPacienteComponent implements OnInit{
     this.apiPaciente.postPaciente(this.formPaciente.value).subscribe(
       (mensaje) => {
         this.pacientes.push(this.formPaciente.value)
-        const Swal = require('sweetalert2')
-        Swal.fire(
-          'Good job!',
-          'You clicked the button!',
-          'success'
-        )
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Registro Exitoso',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.router.navigate(['lista-pacientes']);
     });
   }

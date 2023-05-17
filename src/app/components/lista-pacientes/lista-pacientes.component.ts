@@ -48,7 +48,8 @@ export class ListaPacientesComponent{
     this.pacienteEditar = this.pacientes[this.indice]
   }
 
-  editar():void{
+  editar(i:number):void{
+    i
     this.apiPaciente.putPaciente(this.pacienteEditar.IdPaciente,this.pacienteEditar).subscribe(()=>{
       this.pacientes[this.indice] = this.pacienteEditar
       this.pacienteEditar= this.PacienteVacio();

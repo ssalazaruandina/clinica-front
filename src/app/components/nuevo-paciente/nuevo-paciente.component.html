@@ -23,7 +23,7 @@
                                 <div class="form-group">
                                     <label>Codigo Paciente: </label>
                                     <input type="text" class="form-control" formControlName="IdPaciente"
-                                        placeholder="Nombre: " name="nombre" />
+                                        placeholder="Codigo Paciente: " name="nombre" />
                                 </div>
                                 <div class="form-group" style="margin-top:10px;">
                                     <label>Nombre: </label>
@@ -33,49 +33,51 @@
                                 <div class="form-group">
                                     <label>Apellidos: </label>
                                     <input type="text" class="form-control" formControlName="Apellidos"
-                                        placeholder="Nombre: " name="nombre" />
+                                        placeholder="Apellidos: " name="nombre" />
                                 </div>
                                 <div class="form-group" style="margin-top:10px;">
                                     <label>Fecha Nacimiento: </label>
                                     <input type="date" class="form-control" formControlName="FechaNacimiento"
-                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                        placeholder="Fecha Nacimiento: " name="apellidoP" />
                                 </div>
                                 <div class="form-group">
-                                    <label>Sexo: </label>
-                                    <input type="text" class="form-control" formControlName="Sexo"
-                                        placeholder="Nombre: " name="nombre" />
+                                    <label>Sexo:</label>
+                                    <select class="form-control" formControlName="Sexo" name="sexo">
+                                        <option value="M">M</option>
+                                        <option value="H">H</option>
+                                    </select>
                                 </div>
                                 <div class="form-group" style="margin-top:10px;">
                                     <label>Peso: </label>
-                                    <input type="text" class="form-control" formControlName="Peso"
-                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                    <input type="text" class="form-control" formControlName="Peso" placeholder="Peso: "
+                                        name="apellidoP" />
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Altura: </label>
                                     <input type="text" class="form-control" formControlName="Altura"
-                                        placeholder="Apellido Materno: " name="apellidoM" />
+                                        placeholder="Altura: " name="apellidoM" />
                                 </div>
                                 <div class="form-group">
                                     <label>Presion Arterial: </label>
                                     <input type="text" class="form-control" formControlName="PresionArterial"
-                                        placeholder="Nombre: " name="nombre" />
+                                        placeholder="Presion Arterial: " name="nombre" />
                                 </div>
                                 <div class="form-group" style="margin-top:10px;">
                                     <label>Frecuencia Cardiaca: </label>
                                     <input type="text" class="form-control" formControlName="FrecuenciaCardiaca"
-                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                        placeholder="Frecuencia Cardiaca: " name="apellidoP" />
                                 </div>
                                 <div class="form-group">
                                     <label>Temperatura: </label>
                                     <input type="text" class="form-control" formControlName="Temperatura"
-                                        placeholder="Nombre: " name="nombre" />
+                                        placeholder="Temperatura: " name="nombre" />
                                 </div>
                                 <div class="form-group" style="margin-top:10px;">
                                     <label>Observaciones: </label>
                                     <input type="text" class="form-control" formControlName="Observaciones"
-                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                        placeholder="Observaciones: " name="apellidoP" />
                                 </div>
                                 <input type="submit" (click)="registrar()" class="btnRegister"
                                     value="Registrar Paciente" />

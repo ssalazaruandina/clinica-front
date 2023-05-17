@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { PacienteService } from 'src/app/services/pacientes/paciente.service';
 
 @Component({
@@ -9,7 +9,10 @@ import { PacienteService } from 'src/app/services/pacientes/paciente.service';
   styleUrls: ['./editar-paciente.component.css']
 })
 export class EditarPacienteComponent implements OnInit {
-  constructor(private forBuilder: FormBuilder, private apiPaciente: PacienteService,private router:Router){}
+  //id:string | null
+  constructor(private forBuilder: FormBuilder, private apiPaciente: PacienteService,private router:Router,private aRoute:ActivatedRoute){
+    //this.id = this.aRoute.snapshot.paramMap.get('IdPaciente');
+  }
 
   ngOnInit(): void {
     this.formPacientes = this.forBuilder.group({

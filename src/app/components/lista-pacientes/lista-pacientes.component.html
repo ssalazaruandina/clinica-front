@@ -88,7 +88,7 @@
                         <td class="text2">{{element.Peso}}</td>
                         <td class="text2">{{element.Altura}}</td>
                         <td class="text2">
-                            <a class="btn btn-primary">
+                            <a class="btn btn-primary" (click)="editar(i)"><!--[routerLink]="['/editar-paciente',elemnt.IdPaciente]-->
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-pencil-square" viewBox="0 0 16 16">
                                     <path
