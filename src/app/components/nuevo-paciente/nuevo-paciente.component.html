@@ -1,0 +1,90 @@
+<div class="container register">
+    <form [formGroup]="this.formPaciente">
+        <div class="row">
+            <div class="col-md-1 register-left">
+
+            </div>
+            <div class="col-md-9 register-right">
+                <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home"
+                            aria-selected="true">Nuevo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false"></a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading">Registrar Nuevo Paciente</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Codigo Paciente: </label>
+                                    <input type="text" class="form-control" formControlName="IdPaciente"
+                                        placeholder="Nombre: " name="nombre" />
+                                </div>
+                                <div class="form-group" style="margin-top:10px;">
+                                    <label>Nombre: </label>
+                                    <input type="text" class="form-control" formControlName="Nombre"
+                                        placeholder="Nombre: " name="apellidoP" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellidos: </label>
+                                    <input type="text" class="form-control" formControlName="Apellidos"
+                                        placeholder="Nombre: " name="nombre" />
+                                </div>
+                                <div class="form-group" style="margin-top:10px;">
+                                    <label>Fecha Nacimiento: </label>
+                                    <input type="date" class="form-control" formControlName="FechaNacimiento"
+                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Sexo: </label>
+                                    <input type="text" class="form-control" formControlName="Sexo"
+                                        placeholder="Nombre: " name="nombre" />
+                                </div>
+                                <div class="form-group" style="margin-top:10px;">
+                                    <label>Peso: </label>
+                                    <input type="text" class="form-control" formControlName="Peso"
+                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Altura: </label>
+                                    <input type="text" class="form-control" formControlName="Altura"
+                                        placeholder="Apellido Materno: " name="apellidoM" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Presion Arterial: </label>
+                                    <input type="text" class="form-control" formControlName="PresionArterial"
+                                        placeholder="Nombre: " name="nombre" />
+                                </div>
+                                <div class="form-group" style="margin-top:10px;">
+                                    <label>Frecuencia Cardiaca: </label>
+                                    <input type="text" class="form-control" formControlName="FrecuenciaCardiaca"
+                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                </div>
+                                <div class="form-group">
+                                    <label>Temperatura: </label>
+                                    <input type="text" class="form-control" formControlName="Temperatura"
+                                        placeholder="Nombre: " name="nombre" />
+                                </div>
+                                <div class="form-group" style="margin-top:10px;">
+                                    <label>Observaciones: </label>
+                                    <input type="text" class="form-control" formControlName="Observaciones"
+                                        placeholder="Apellido Paterno: " name="apellidoP" />
+                                </div>
+                                <input type="submit" (click)="registrar()" class="btnRegister"
+                                    value="Registrar Paciente" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
