@@ -13,6 +13,7 @@ export class ListaPacientesComponent{
       this.pacientes = data.data  
     })
   }
+  
   PacienteVacio():Paciente{
     return {
       IdPaciente: "",
@@ -28,11 +29,13 @@ export class ListaPacientesComponent{
       Observaciones: ""
     }
   }
-  pacienteNuevo: Paciente = this.PacienteVacio();
+  
   pacienteEditar: Paciente = this.PacienteVacio();
+  pacienteCopia: Paciente = this.PacienteVacio();
   indice: number = 0;
-  ngOnInit(): void {
-  }
+
+  
+  ngOnInit(): void {}
   
   eliminar(indice:number):void{
     let paciente:Paciente = this.pacientes[indice];
@@ -43,16 +46,26 @@ export class ListaPacientesComponent{
         })
     });
   }
+
   capturarIndice(i:number){
-    this.indice = i
-    this.pacienteEditar = this.pacientes[this.indice]
+    this.indice = i;
+    this.pacienteEditar = this.pacientes[this.indice];
+    this.pacienteCopia = this.pacientes[this.indice]
   }
 
-  editar(i:number):void{
-    i
+  editar():void{
     this.apiPaciente.putPaciente(this.pacienteEditar.IdPaciente,this.pacienteEditar).subscribe(()=>{
-      this.pacientes[this.indice] = this.pacienteEditar
-      this.pacienteEditar= this.PacienteVacio();
+      this.pacientes[this.indice] = this.pacienteEditar;
+      this.pacienteEditar = this.PacienteVacio();
+      this.apiPaciente.getPacientes().subscribe(data =>{
+        this.pacientes = data.data  
+      })
     })
+  }
+
+  restaurar():void{
+    console.log(this.indice)
+    console.log(this.pacienteCopia)
+    this.pacientes[this.indice] = this.pacienteCopia 
   }
 };
