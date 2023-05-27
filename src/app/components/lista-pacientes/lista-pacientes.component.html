@@ -23,7 +23,6 @@
             </li>
             <form id="miFormulario" method="post">
                 <ul class="menu-links">
-
                     <button type="submit" name="btnAutor">
                         <li class="nav-link">
                             <a>
@@ -32,16 +31,11 @@
                             </a>
                         </li>
                     </button>
-
-
-
                 </ul>
             </form>
         </div>
 
         <div class="bottom-content">
-
-
             <li class="mode">
                 <div class="sun-moon">
                     <i class='bx bx-moon icon moon'></i>
@@ -53,7 +47,6 @@
                     <span class="switch"></span>
                 </div>
             </li>
-
         </div>
     </div>
 
@@ -61,9 +54,9 @@
 
 <section class="home">
     <div class="text">Clinica</div>
-    <div class="container m-5">
+    <div class="container-fluid p-3">
         <h1 class="text-center">Mantenimiento Paciente</h1>
-        <a routerLink="/nuevo-paciente" type="button" class="btn btn-success btn-opacity">Añadir nuevo paciente</a>
+        <a routerLink="/nuevo-paciente" type="button" class="btn btn-success btn-opacity my-3">Añadir nuevo paciente</a>
         <div class="table-responsive">
             <table class="table table-primary">
                 <thead>
@@ -80,14 +73,14 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let element of pacientes; index as i">
-                        <td class="text2">{{element.IdPaciente}}</td>
-                        <td class="text2">{{element.Nombre}}</td>
-                        <td class="text2">{{element.Apellidos}}</td>
-                        <td class="text2">{{element.FechaNacimiento}}</td>
-                        <td class="text2">{{element.Sexo}}</td>
-                        <td class="text2">{{element.Peso}}</td>
-                        <td class="text2">{{element.Altura}}</td>
-                        <td class="text2">
+                        <td>{{element.IdPaciente}}</td>
+                        <td>{{element.Nombre}}</td>
+                        <td>{{element.Apellidos}}</td>
+                        <td>{{element.FechaNacimiento}}</td>
+                        <td>{{element.Sexo}}</td>
+                        <td>{{element.Peso}}</td>
+                        <td>{{element.Altura}}</td>
+                        <td>
                             <button type="button" class="btn btn-primary" (click)="capturarIndice(i)"
                                 data-bs-toggle="modal"
                                 data-bs-target="#exampleModal"><!--[routerLink]="['/editar-paciente',elemnt.IdPaciente]-->

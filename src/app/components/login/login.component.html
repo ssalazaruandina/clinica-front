@@ -1,0 +1,41 @@
+<div class="contenedor">
+  <div class="img">
+    <img src="assets/bg.svg" alt="">
+  </div>
+  <div class="contenido-login">
+
+    <div class="cont">
+      <img src="assets/logo.png" alt="">
+      <h2>Login</h2>
+      <p style="color:#FF0000;text-align:center;font-size:20px;">Usuario no existe</p>
+        <div class="input-div nit">
+          <div class="i">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="div">
+            <input type="text"  placeholder="ID" [(ngModel)]="this.id">
+          </div>
+        </div>
+        <div class="input-div pass">
+          <div class="i">
+            <i class="fas fa-lock"></i>
+          </div>
+          <div class="div">
+            <input type="text" placeholder="NOMBRE" name="Nombre" [(ngModel)]="this.nombre">
+          </div>
+        </div>
+      <div class="row" id="load" hidden="hidden">
+        <div class="col-xs-4 col-xs-offset-4 col-md-2 col-md-offset-5">
+          <img src="assets/img/load.gif" width="100%" alt="">
+        </div>
+        <div class="col-xs-12 center text-accent">
+          <span>Validando información...</span>
+        </div>
+      </div>
+      <button class="btn" name='login' type="submit" (click)="login()"> Iniciar sesion
+   </button>
+
+    </div>
+    <div id="msg_error" class="alert alert-danger" role="alert" style="display: none"></div>
+  </div>
+</div>
