@@ -51,14 +51,15 @@
                       formControlName="Sexo"
                       name="sexo"
                     >
-                      <option value="M">M</option>
-                      <option value="H">H</option>
+                      <option value="" selected>Seleccione el sexo</option>
+                      <option value="M">Masculino</option>
+                      <option value="F">Femenino</option>
                     </select>
                   </div>
                   <div class="form-group" style="margin-top: 10px">
                     <label>Peso: </label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       formControlName="Peso"
                       placeholder="Peso: "
@@ -70,7 +71,7 @@
                   <div class="form-group" style="margin-top: 10px">
                     <label>Altura: </label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       formControlName="Altura"
                       placeholder="Altura: "
@@ -80,7 +81,7 @@
                   <div class="form-group" style="margin-top: 10px">
                     <label>Presion Arterial: </label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       formControlName="PresionArterial"
                       placeholder="Presion Arterial: "
@@ -90,7 +91,7 @@
                   <div class="form-group" style="margin-top: 10px">
                     <label>Frecuencia Cardiaca: </label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       formControlName="FrecuenciaCardiaca"
                       placeholder="Frecuencia Cardiaca: "
@@ -100,7 +101,7 @@
                   <div class="form-group" style="margin-top: 10px">
                     <label>Temperatura: </label>
                     <input
-                      type="text"
+                      type="number"
                       class="form-control"
                       formControlName="Temperatura"
                       placeholder="Temperatura: "
@@ -120,7 +121,7 @@
                   <div class="form-group">
                     <input
                       type="submit"
-                      routerLink="paciente"
+                      (click)="cancelar()"
                       class="btn btn-danger"
                       value="Cancelar"
                       style="margin-top: 10px"
@@ -130,7 +131,7 @@
                       (click)="registrar()"
                       class="btn btn-primary"
                       value="Registrar Paciente"
-                      style="margin-top: 10px;margin-left: 15px;"
+                      style="margin-top: 10px; margin-left: 15px"
                     />
                   </div>
                 </div>

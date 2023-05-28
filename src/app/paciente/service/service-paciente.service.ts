@@ -6,10 +6,10 @@ import { API } from 'src/app/shared/variables/variables';
 
 enum url {
   LISTAR      = `/api/pacientes`,
-  BUSCAR      = `paciente/`,
-  CREAR       = `createPaciente`,
-  ACTUALIZAR  = `updatePaciente/`,
-  ELIMINAR    = `deletePaciente/`,
+  BUSCAR      = `/api/paciente/`,
+  CREAR       = `/api/createPaciente`,
+  ACTUALIZAR  = `/api/updatePaciente/`,
+  ELIMINAR    = `/api/deletePaciente/`,
 }
 
 @Injectable({
@@ -21,16 +21,16 @@ export class ServicePaciente {
   async listarPacientes(){
     return this.http.get<respuesta<Paciente>>(url.LISTAR).toPromise();
   }
-  buscarPaciente(id: string) {
-    return this.http.get<respuesta<Paciente>>(API+url.BUSCAR+id);
+  async buscarPaciente(id: string) {
+    return this.http.get<respuesta<Paciente>>(url.BUSCAR+id).toPromise();
   }
-  crearPaciente(paciente:PacienteBody ) {
-    return this.http.post(API+url.CREAR, paciente);
+  async crearPaciente(paciente:PacienteBody ) {
+    return this.http.post(url.CREAR, paciente).toPromise();
   }
-  putPaciente(id: any, paciente: PacienteBody) {
-    return this.http.put<respuesta<Paciente>>(API+url.ACTUALIZAR+id, paciente);
+  async putPaciente(id: any, paciente: PacienteBody) {
+    return this.http.put<respuesta<Paciente>>(url.ACTUALIZAR+id, paciente).toPromise();
   }
-  deletePaciente(id: any) {
-    return this.http.delete(API+url.ELIMINAR+id);
+  async deletePaciente(id: any) {
+    return this.http.delete(url.ELIMINAR+id).toPromise();
   }
 }

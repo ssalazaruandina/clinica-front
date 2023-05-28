@@ -8,9 +8,10 @@ import { ServicePaciente } from './service/service-paciente.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CrearComponent } from './crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarComponent } from './editar/editar.component';
 
 @NgModule({
-  declarations: [PacienteComponent, ListarComponent, CrearComponent],
+  declarations: [PacienteComponent, ListarComponent, CrearComponent, EditarComponent],
   imports: [
     CommonModule,
     SharedModule,

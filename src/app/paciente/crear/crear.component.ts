@@ -53,12 +53,12 @@ export class CrearComponent implements OnInit {
     Observaciones: new FormControl(''),
   });
 
-  registrar(): void {
+  public registrar(): void {
     if (
       this.formPaciente.controls['Nombre'].errors?.['required'] ||
       this.formPaciente.controls['Apellidos'].errors?.['required'] ||
       this.formPaciente.controls['FechaNacimiento'].errors?.['required'] ||
-      this.formPaciente.controls['sexo'].errors?.['required'] ||
+      this.formPaciente.controls['Sexo'].errors?.['required'] ||
       this.formPaciente.controls['Peso'].errors?.['required'] ||
       this.formPaciente.controls['Altura'].errors?.['required'] ||
       this.formPaciente.controls['PresionArterial'].errors?.['required'] ||
@@ -73,18 +73,24 @@ export class CrearComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500,
       });
+    }else{
+      this.apiPaciente.crearPaciente(this.formPaciente.value).then(
+        () => {
+          this.pacientes.push(this.formPaciente.value)
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Registro Exitoso',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.router.navigate(['paciente']);
+      });  
     }
-    /* this.apiPaciente.postPaciente(this.formPaciente.value).subscribe(
-      (mensaje) => {
-        this.pacientes.push(this.formPaciente.value)
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Registro Exitoso',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        this.router.navigate(['lista-pacientes']);
-    }); */
   }
+
+  public cancelar():void{
+    this.router.navigate(['paciente']);
+  }
+
 }
