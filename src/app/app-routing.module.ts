@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 import { NuevoPacienteComponent } from './components/nuevo-paciente/nuevo-paciente.component';
 import { LoginComponent} from './components/login/login.component';
+import { PacienteModule } from './paciente/paciente.module';
+import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
 
 const routes: Routes = [
   {
@@ -12,16 +13,15 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path: 'lista-pacientes', component: ListaPacientesComponent
+    path: 'nuevo-paciente', component: NuevoPacienteComponent
   },
   {
-    path: 'nuevo-paciente', component: NuevoPacienteComponent
+    path: 'lista-pacientes', component: ListaPacientesComponent
   }
-  
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }

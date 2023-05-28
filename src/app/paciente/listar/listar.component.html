@@ -1,0 +1,45 @@
+<div class="listar">
+  <h2>Listado de Pacientes</h2>
+
+  <div class="conteiner">
+    <a
+      routerLink="./crear"
+      type="button"
+      class="btn btn-success btn-opacity my-3"
+      >Añadir nuevo paciente
+    </a>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Codigo</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Fecha Nacimiento</th>
+          <th scope="col">Sexo</th>
+          <th scope="col">Peso</th>
+          <th scope="col">Altura</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let element of pacientes; index as i">
+          <td>{{ element.IdPaciente }}</td>
+          <td>{{ element.Nombre }}</td>
+          <td>{{ element.Apellidos }}</td>
+          <td>{{ element.FechaNacimiento }}</td>
+          <td>{{ element.Sexo }}</td>
+          <td>{{ element.Peso }}</td>
+          <td>{{ element.Altura }}</td>
+          <td>
+            <button type="button" class="btn btn-primary">Editar</button>
+            <button type="button" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+        <tr *ngIf="this.pacientes.length == 0">
+          <td colspan="11" class="text-center">No hay registros</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
