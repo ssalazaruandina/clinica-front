@@ -32,7 +32,14 @@
           <td>{{ element.Peso }}</td>
           <td>{{ element.Altura }}</td>
           <td>
-            <button type="button" class="btn btn-primary" style="margin-right: 10px;" (click)="editar(element.IdPaciente)">Editar</button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              style="margin-right: 10px"
+              routerLink="./editar/{{element.IdPaciente}}"
+            >
+              Editar
+            </button>
             <button type="button" class="btn btn-danger">Eliminar</button>
           </td>
         </tr>

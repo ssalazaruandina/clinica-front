@@ -29,9 +29,4 @@ export class ListarComponent implements OnInit{
     })
   }
 
-  editar(id: string){
-    console.log(id)
-  }
-
-
 }

@@ -1,1 +1,144 @@
-<p>editar works!</p>
+<div class="editar">
+    <div class="container register">
+        <div class="row">
+            <div class="col-md-1 register-left"></div>
+            <div class="col-md-9 register-right">
+              <div class="tab-content" id="myTabContent">
+                <div
+                  class="tab-pane fade show active"
+                  id="home"
+                  role="tabpanel"
+                  aria-labelledby="home-tab"
+                >
+                  <h3 class="register-heading">Actualizar Paciente</h3>
+                  <div class="row register-form" >
+                    <div class="col-md-6">
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Nombre: </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Nombre "                          
+                          [(ngModel)]="this.paciente.Nombre"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Apellidos: </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Apellidos "
+                          [(ngModel)]="this.paciente.Apellidos"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Fecha Nacimiento: </label>
+                        <input
+                          type="date"
+                          class="form-control"
+                          placeholder="Fecha Nacimiento: "
+                          [(ngModel)]="this.paciente.FechaNacimiento"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Sexo:</label>
+                        <select
+                          class="form-control"
+                          name="sexo"
+                          [(ngModel)]="this.paciente.Sexo"
+                        >
+                          <option value="M" [selected]="this.paciente.Sexo === 'M'">Masculino</option>
+                          <option value="F" [selected]="this.paciente.Sexo === 'F'">Femenino</option>
+                        </select>
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Peso: </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Peso: "
+                          
+                          [(ngModel)]="this.paciente.Peso"
+                          name="apellidoP"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Altura: </label>
+                        <input
+                          type="number"
+                          
+                          [(ngModel)]="this.paciente.Altura"
+                          class="form-control"
+                          placeholder="Altura: "
+                          name="apellidoM"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Presion Arterial: </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Presion Arterial: "
+                          
+                          [(ngModel)]="this.paciente.PresionArterial"
+                          name="nombre"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Frecuencia Cardiaca: </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Frecuencia Cardiaca: "
+                          
+                          [(ngModel)]="this.paciente.FrecuenciaCardiaca"
+                          name="apellidoP"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Temperatura: </label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          
+                          [(ngModel)]="this.paciente.Temperatura"
+                          placeholder="Temperatura: "
+                          name="nombre"
+                        />
+                      </div>
+                      <div class="form-group" style="margin-top: 10px">
+                        <label>Observaciones: </label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          [(ngModel)]="this.paciente.Observaciones"
+                          placeholder="Observaciones: "
+                          name="apellidoP"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="submit"
+                          (click)="cancelar()"
+                          class="btn btn-danger"
+                          value="Cancelar"
+                          style="margin-top: 10px"
+                        />
+                        <input
+                          type="submit"
+                          (click)="registrar()"
+                          class="btn btn-primary"
+                          value="Registrar Paciente"
+                          style="margin-top: 10px; margin-left: 15px"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+</div>

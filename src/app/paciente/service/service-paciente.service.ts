@@ -27,7 +27,7 @@ export class ServicePaciente {
   async crearPaciente(paciente:PacienteBody ) {
     return this.http.post(url.CREAR, paciente).toPromise();
   }
-  async putPaciente(id: any, paciente: PacienteBody) {
+  async actualizarPaciente(id: any, paciente: PacienteBody) {
     return this.http.put<respuesta<Paciente>>(url.ACTUALIZAR+id, paciente).toPromise();
   }
   async deletePaciente(id: any) {
