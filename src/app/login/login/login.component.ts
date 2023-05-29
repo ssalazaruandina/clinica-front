@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { LoginService } from '../service/login-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { loginBody } from '../model/login.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,16 @@ export class LoginComponent {
     }
 
   login(): void {
-    this.loginService.login(this.body);
-    this.router.navigate(['paciente']);
+    this.loginService.login(this.body).then((res)=>{
+      this.router.navigate(['paciente']);
+    }).catch((rej)=>{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Usuario y/o contraseña incorrecta',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
   }
 }
