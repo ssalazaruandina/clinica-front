@@ -22,5 +22,6 @@ export class LoginComponent {
 
   login(): void {
     this.loginService.login(this.body);
+    this.router.navigate(['paciente']);
   }
 }

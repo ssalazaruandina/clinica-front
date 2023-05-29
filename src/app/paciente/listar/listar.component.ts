@@ -13,6 +13,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListarComponent implements OnInit {
   private respuesta: respuesta<Paciente> | any;
   public pacientes: Paciente[] = [];
+  public id:string="";
 
   constructor(
     private servicePaciente: ServicePaciente,
@@ -42,5 +43,16 @@ export class ListarComponent implements OnInit {
       this.pacientes = this.respuesta.data;
       this.convertDateList();
     });
+  }
+
+  mostrarDetalle(id:string){
+    this.id = id;
+  }
+
+  generarDiagnostico(){
+  }
+
+  salirModal(){
+    this.id = ""
   }
 }

@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
+import { DiagnosticoModule } from './diagnostico/diagnostico.module';
 
 @NgModule({
   declarations:[
@@ -16,7 +17,8 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     //Modulos creados
     PacienteModule,
-    LoginModule
+    LoginModule,
+    DiagnosticoModule
   ],
   providers: [],
   bootstrap: [AppComponent]

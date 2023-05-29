@@ -40,7 +40,23 @@
             >
               Editar
             </button>
-            <button type="button" (click)="eliminar(element.IdPaciente)" class="btn btn-danger">Eliminar</button>
+            <button
+              type="button"
+              style="margin-right: 10px"
+              (click)="eliminar(element.IdPaciente)"
+              class="btn btn-danger"
+            >
+              Eliminar
+            </button>
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              class="btn btn-warning"
+              (click)="mostrarDetalle(element.IdPaciente)"
+            >
+              Mas
+            </button>
           </td>
         </tr>
         <tr *ngIf="this.pacientes.length == 0">
@@ -48,5 +64,52 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Detalles Paciente
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="salirModal()"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <p>Modal body text goes here.</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="salirModal()"
+          >
+            Close
+          </button>
+          <button
+            data-bs-dismiss="modal"
+            routerLink="/diagnostico/crear/{{this.id}}"
+            type="button"
+            class="btn btn-primary"
+          >
+            Generar Diagnostico
+          </button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

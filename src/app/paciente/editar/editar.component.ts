@@ -28,8 +28,8 @@ export class EditarComponent implements OnInit {
   };
 
   constructor(
-    private route: ActivatedRoute,
     private servicePaciente: ServicePaciente,
+    private route: ActivatedRoute,
     private router:Router
   ) {}
 
