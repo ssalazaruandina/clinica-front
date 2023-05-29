@@ -37,8 +37,6 @@ export class EditarComponent implements OnInit {
     this.sub = this.route.params.subscribe((params) => {
       this.id = params['id']; // (+) converts string 'id' to a number
       this.recuperarDatos(this.id);
-      console.log('inico');
-      console.log(this.paciente);
     });
   }
 
@@ -49,7 +47,6 @@ export class EditarComponent implements OnInit {
   registrar():void {
     this.servicePaciente.actualizarPaciente(this.id,this.paciente)
     this.router.navigate(['paciente']);
-    console.log(this.paciente);
   }
 
   recuperarDatos(id: string) {

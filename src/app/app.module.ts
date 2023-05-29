@@ -1,30 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'; //Usar Api
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NuevoPacienteComponent } from './components/nuevo-paciente/nuevo-paciente.component';
-import { LoginComponent } from './components/login/login.component';
-import { SharedModule } from './shared/shared.module';
 import { PacienteModule } from './paciente/paciente.module';
-import { PacienteRoutingModule } from './paciente/paciente-routing.module';
-import { ListaPacientesComponent } from './components/lista-pacientes/lista-pacientes.component';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations:[
-    AppComponent,
-    NuevoPacienteComponent,
-    LoginComponent,
-    ListaPacientesComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule, 
-    HttpClientModule,
-    PacienteModule
+    //Modulos creados
+    PacienteModule,
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]

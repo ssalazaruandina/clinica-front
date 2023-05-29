@@ -36,11 +36,11 @@
               type="button"
               class="btn btn-primary"
               style="margin-right: 10px"
-              routerLink="./editar/{{element.IdPaciente}}"
+              routerLink="./editar/{{ element.IdPaciente }}"
             >
               Editar
             </button>
-            <button type="button" class="btn btn-danger">Eliminar</button>
+            <button type="button" (click)="eliminar(element.IdPaciente)" class="btn btn-danger">Eliminar</button>
           </td>
         </tr>
         <tr *ngIf="this.pacientes.length == 0">
