@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { linkmenu } from '../model/link.interface';
 
 @Component({
   selector: 'app-menu-bar',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class MenuBarComponent {
   nombre:string = "EsSalud"
+
+  @Input('menu-links') menu!:linkmenu[];
 }

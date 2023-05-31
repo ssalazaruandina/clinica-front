@@ -18,7 +18,7 @@ const routes: Routes = [
   },
   {
     path: 'prueba',
-    component: MenuBarComponent,
+    component: ListarComponent,
   },
 ];
 

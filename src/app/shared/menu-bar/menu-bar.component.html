@@ -7,18 +7,20 @@
 
     <div class="sidebar-content">
       <ul class="lists">
-        <li class="list">
-          <a href="#" class="nav-link">
-            <i class="bx bx-child icon" style="font-size: 35px;"></i>
-            <span class="link">Pacientes</span>
+
+        <li class="list" *ngFor="let link of menu;">
+          <a routerLink="/{{link.path}}" class="nav-link">
+            <i class="{{link.icon}}" style="font-size: 35px;"></i>
+            <span class="link">{{link.label}}</span>
           </a>
         </li>
-        <li class="list">
+
+        <!-- <li class="list">bx bx-child icon
           <a href="#" class="nav-link">
             <i class='bx bx-clipboard icon' style="font-size: 30px;"></i>
             <span class="link">Diagnostico</span>
           </a>
-        </li>
+        </li> -->
         <!-- 
         <li class="list">
           <a href="#" class="nav-link">

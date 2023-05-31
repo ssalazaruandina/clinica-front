@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { decodedAccessToken } from 'src/app/shared/funtions/decoder.funtion';
@@ -9,13 +9,14 @@ import Swal from 'sweetalert2';
   selector: 'app-crear',
   templateUrl: './crear.component.html',
   styleUrls: ['./crear.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CrearComponent implements OnInit {
   private sub: any;
   public id: string = '';
   private token!: any;
   public idMedico: string = '';
-  private forBuilder: any;
+  private forBuilder!: FormBuilder;
 
   private fecha: Date = new Date();
   public fechaActual: string = this.fecha.toISOString().split('T')[0];
@@ -23,7 +24,8 @@ export class CrearComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private cookieService: CookieService,
-    private router: Router
+    private router: Router,
+    
   ) {}
 
   ngOnInit(): void {
@@ -38,18 +40,15 @@ export class CrearComponent implements OnInit {
         Paciente: Number(this.id)
       })
 
-
-    });
-
-
-    this.formDiagnostico = this.forBuilder.group({
-      Fecha: ['', [Validators.required]],
-      Enfermendad: ['', [Validators.required]],
-      Sintomas: ['', [Validators.required]],
-      Tratamiento: ['', [Validators.required]],
-      Observaciones: ['', [Validators.required]],
-      Paciente: ['', [Validators.required]],
-      Medico: ['', [Validators.required]],
+      this.formDiagnostico = this.forBuilder.group({
+        Fecha: [this.fechaActual, [Validators.required]],
+        Enfermendad: [, [Validators.required]],
+        Sintomas: [, [Validators.required]],
+        Tratamiento: [, [Validators.required]],
+        Observaciones: [, [Validators.required]],
+        Paciente: [this.idMedico, [Validators.required]],
+        Medico: [Number(this.id), [Validators.required]],
+      });
     });
   }
 
@@ -59,8 +58,8 @@ export class CrearComponent implements OnInit {
     Sintomas: new FormControl(''),
     Tratamiento: new FormControl(''),
     Observaciones: new FormControl(''),
-    Paciente: new FormControl(""),
-    Medico: new FormControl(""),
+    Paciente: new FormControl(''),
+    Medico: new FormControl(''),
   });
 
   cancelar() {
@@ -68,6 +67,8 @@ export class CrearComponent implements OnInit {
   }
 
   registrar() {
+    console.log(this.formDiagnostico.value);
+    
     if (
       this.formDiagnostico.controls['Fecha'].errors?.['required'] ||
       this.formDiagnostico.controls['Enfermedad'].errors?.['required'] ||
