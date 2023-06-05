@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PacienteModule } from './paciente/paciente.module';
 import { LoginModule } from './login/login.module';
 import { DiagnosticoModule } from './diagnostico/diagnostico.module';
+import { DoctorModule } from './doctor/doctor.module';
 
 @NgModule({
   declarations:[
@@ -18,7 +19,8 @@ import { DiagnosticoModule } from './diagnostico/diagnostico.module';
     //Modulos creados
     PacienteModule,
     LoginModule,
-    DiagnosticoModule
+    DiagnosticoModule,
+    DoctorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

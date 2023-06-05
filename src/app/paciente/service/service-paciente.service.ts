@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { Paciente, PacienteBody } from '../model/paciente.model';
-import { API } from 'src/app/shared/variables/variables';
 
 enum url {
   LISTAR      = `/api/pacientes`,
