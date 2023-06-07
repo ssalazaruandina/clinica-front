@@ -5,8 +5,8 @@ import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { CookieService } from 'ngx-cookie-service';
 
 enum url {
-  LOGIN = `/api/login`,
-  LOGOUT = `/api/logout`,
+  LOGIN   = `https://back-clinica-end.onrender.com/api/login`,
+  LOGOUT  = `https://back-clinica-end.onrender.com/api/logout`,
 }
 
 @Injectable({
@@ -19,7 +19,9 @@ export class LoginService {
     if (body.usuario === 'admin' && body.contrasenia === 'admin') {
       return this.cookieService.set('Is', 'ladhsfbkjsabfzmnb');
     }else{
-      return this.http.post<respuesta<any>>(url.LOGIN, body).toPromise();
+      return this.http.post<respuesta<any>>(url.LOGIN, body).toPromise().then(res=>{
+        this.cookieService.set('accessToken', res?.data.accessToken);
+      });
     }
   }
 

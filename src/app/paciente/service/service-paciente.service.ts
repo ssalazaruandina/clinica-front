@@ -4,11 +4,11 @@ import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { Paciente, PacienteBody } from '../model/paciente.model';
 
 enum url {
-  LISTAR      = `/api/pacientes`,
-  BUSCAR      = `/api/paciente/`,
-  CREAR       = `/api/createPaciente`,
-  ACTUALIZAR  = `/api/updatePaciente/`,
-  ELIMINAR    = `/api/deletePaciente/`,
+  LISTAR      = `https://back-clinica-end.onrender.com/api/pacientes`,
+  BUSCAR      = `https://back-clinica-end.onrender.com/api/paciente/`,
+  CREAR       = `https://back-clinica-end.onrender.com/api/createPaciente`,
+  ACTUALIZAR  = `https://back-clinica-end.onrender.com/api/updatePaciente/`,
+  ELIMINAR    = `https://back-clinica-end.onrender.com/api/deletePaciente/`,
 }
 
 @Injectable({

@@ -4,12 +4,12 @@ import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { Diagnostico, DiagnosticoBody, DiagnosticoPaciente } from '../model/diagnostico.model';
 
 enum url {
-  LISTAR      = `/api/diagnosticos`,
-  BUSCAR      = `/api/diagnostico/`,
-  CREAR       = `/api/createDiagnostico`,
-  ACTUALIZAR  = `/api/updateDiagnostico/`,
-  ELIMINAR    = `/api/deleteDiagnostico/`,
-  LISTARP = '/api/diagnosticoswithpaciente'
+  LISTAR      = `https://back-clinica-end.onrender.com/api/diagnosticos`,
+  BUSCAR      = `https://back-clinica-end.onrender.com/api/diagnostico/`,
+  CREAR       = `https://back-clinica-end.onrender.com/api/createDiagnostico`,
+  ACTUALIZAR  = `https://back-clinica-end.onrender.com/api/updateDiagnostico/`,
+  ELIMINAR    = `https://back-clinica-end.onrender.com/api/deleteDiagnostico/`,
+  LISTARP     = `https://back-clinica-end.onrender.com/api/diagnosticoswithpaciente`
 }
 
 @Injectable({

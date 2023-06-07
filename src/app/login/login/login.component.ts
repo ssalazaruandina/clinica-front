@@ -29,9 +29,15 @@ export class LoginComponent {
   };
 
   login(): void {
+    console.log(this.body);
+    console.log("arriba es dentro del body");
+    
     this.loginService
       .login(this.body)
       .then((res) => {
+        console.log(res);
+        
+
         if (this.cookieService.get('accessToken')) {
           this.router.navigate(['paciente']);
         } else {
