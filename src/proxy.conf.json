@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "http://localhost:8000",
+        "target": "https://back-clinica-end.onrender.com",
         "secure": false,
         "logLevel": "debug"
     }
