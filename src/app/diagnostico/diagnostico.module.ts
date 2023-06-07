@@ -5,13 +5,15 @@ import { DiagnosticoComponent } from './diagnostico/diagnostico.component';
 import { SharedModule } from '../shared/shared.module';
 import { DiagnosticoRoutingModule } from './diagnostico-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListarComponent } from './listar/listar.component';
 
 
 
 @NgModule({
   declarations: [
     CrearComponent,
-    DiagnosticoComponent
+    DiagnosticoComponent,
+    ListarComponent
   ],
   imports: [
     CommonModule,

@@ -1,2 +1,67 @@
-<p>listar works!</p>
-<h1>akfsbfkajbsfksabgjkasgjbaskjgbaskjgbsakjgbsakgbja</h1>
+<div class="listar">
+    <h2>Listado de Doctores</h2>
+  
+    <div class="conteiner">
+      <a
+        routerLink="./crear"
+        type="button"
+        class="btn btn-success btn-opacity my-3"
+        >Añadir nuevo doctor
+      </a>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellidos</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of doctores; index as i">
+            <td>{{ element.IdMedico }}</td>
+            <td>{{ element.Nombre }}</td>
+            <td>{{ element.Apellido }}</td>
+            <td>{{ element.FechaNacimiento }}</td>
+            <td>{{ element.Genero }}</td>
+            <td>{{ element.CorreoElectronico }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="margin-right: 10px"
+                routerLink="./editar/{{ element.IdMedico }}"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                style="margin-right: 10px"
+                (click)="eliminar(element.IdMedico)"
+                class="btn btn-danger"
+              >
+                Eliminar
+              </button>
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                class="btn btn-warning"
+                (click)="mostrarDetalle(element.IdMedico)"
+              >
+                Mas
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="this.doctores.length === 0">
+            <td colspan="11" class="text-center">No hay registros</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

@@ -1,2 +1,146 @@
-<p>crear works!</p>
-<h1>akfsbfkajbsfksabgjkasgjbaskjgbaskjgbsakjgbsakgbja</h1>
+<div class="crear">
+    <div class="container register">
+      <form [formGroup]="this.formDoctor">
+        <div class="row">
+          <div class="col-md-1 register-left"></div>
+          <div class="col-md-9 register-right">
+            <div class="tab-content" id="myTabContent">
+              <div
+                class="tab-pane fade show active"
+                id="home"
+                role="tabpanel"
+                aria-labelledby="home-tab"
+              >
+                <h3 class="register-heading">Registrar Nuevo Medico</h3>
+                <div class="row register-form">
+                  <div class="col-md-6">
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Nombre: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Nombre"
+                        placeholder="Nombre "
+                        name="apellidoP"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Apellidos: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Apellidos"
+                        placeholder="Apellidos "
+                        name="nombre"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Fecha Nacimiento: </label>
+                      <input
+                        type="date"
+                        class="form-control"
+                        formControlName="FechaNacimiento"
+                        placeholder="Fecha Nacimiento: "
+                        name="apellidoP"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Genero:</label>
+                      <select
+                        class="form-control"
+                        formControlName="Sexo"
+                        name="sexo"
+                      >
+                        <option value="" selected>Seleccione el Genero</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                      </select>
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Direccion: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Direccion"
+                        placeholder="Direccion: "
+                        name="apellidoP"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Ciudad: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Ciudad"
+                        placeholder="Ciudad: "
+                        name="apellidoM"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Pais: </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="Pais"
+                        placeholder="Pais: "
+                        name="nombre"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Frecuencia Cardiaca: </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="FrecuenciaCardiaca"
+                        placeholder="Frecuencia Cardiaca: "
+                        name="apellidoP"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Temperatura: </label>
+                      <input
+                        type="number"
+                        class="form-control"
+                        formControlName="Temperatura"
+                        placeholder="Temperatura: "
+                        name="nombre"
+                      />
+                    </div>
+                    <div class="form-group" style="margin-top: 10px">
+                      <label>Observaciones: </label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        formControlName="Observaciones"
+                        placeholder="Observaciones: "
+                        name="apellidoP"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="submit"
+                        (click)="cancelar()"
+                        class="btn btn-danger"
+                        value="Cancelar"
+                        style="margin-top: 10px"
+                      />
+                      <input
+                        type="submit"
+                        (click)="registrar()"
+                        class="btn btn-primary"
+                        value="Registrar Paciente"
+                        style="margin-top: 10px; margin-left: 15px"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

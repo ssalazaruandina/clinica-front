@@ -1,5 +1,69 @@
 <div class="listar">
-    <h1>vamos a listar los diagnosticos</h1>
-</div>
-
-
+    <h2>Listado de Diagnosticos</h2>
+  
+    <div class="conteiner">
+      <a
+        routerLink="./crear"
+        type="button"
+        class="btn btn-success btn-opacity my-3"
+        >Añadir nuevo diagnostico
+      </a>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Codigo</th>
+            <th scope="col">Paciente</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Enfermedad</th>
+            <th scope="col">Sintomas</th>
+            
+            <th scope="col">Tratamiento</th>
+            <th scope="col">Observaciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of diagnosticos; index as i">
+            <td>{{ element.Id }}</td>
+            <td>{{ element.id.Nombre }}</td>
+            <td>{{ element.Fecha }}</td>
+            <td>{{ element.Enfermedad }}</td>
+            <td>{{ element.Sintomas }}</td>
+            <td>{{ element.Tratamiento }}</td>
+            <td>{{ element.Observaciones }}</td>
+            <td>
+              <button
+                type="button"
+                class="btn btn-primary"
+                style="margin-right: 10px"
+                routerLink="./editar/{{ element.Id }}"
+              >
+                Editar
+              </button>
+              <button
+                type="button"
+                style="margin-right: 10px"
+                (click)="eliminar(element.Id)"
+                class="btn btn-danger"
+              >
+                Eliminar
+              </button>
+              <button
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                class="btn btn-warning"
+                (click)="mostrarDetalle(element.Id)"
+              >
+                Mas
+              </button>
+            </td>
+          </tr>
+          <tr *ngIf="this.diagnosticos.length == 0">
+            <td colspan="11" class="text-center">No hay registros</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

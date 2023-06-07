@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
 })
 export class CrearComponent implements OnInit {
 
-  public pacientes: Paciente[] = [];
+  
   
   constructor(
     private forBuilder: FormBuilder,
@@ -76,7 +76,6 @@ export class CrearComponent implements OnInit {
     }else{
       this.apiPaciente.crearPaciente(this.formPaciente.value).then(
         () => {
-          this.pacientes.push(this.formPaciente.value)
           Swal.fire({
             position: 'top-end',
             icon: 'success',
