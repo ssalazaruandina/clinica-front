@@ -1,32 +1,38 @@
 <div class="contenedor">
-    <div class="img">
-      <!-- <img src="assets/bg.svg" alt=""> -->
-      <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie>
-    </div>
-    <div class="contenido-login">
-  
-      <div class="cont">
-        
-        <h2>Login</h2>
-          <div class="input-div nit">
-            <div class="i">
-              <i class="fas fa-user"></i>
-            </div>
-            <div class="div">
-              <input type="text"  placeholder="Correo Electronico" [(ngModel)]="this.body.usuario">
-            </div>
-          </div>
-          <div class="input-div pass">
-            <div class="i">
-              <i class="fas fa-lock"></i>
-            </div>
-            <div class="div">
-              <input type="password" placeholder="Contraseña"  [(ngModel)]="this.body.contrasenia">
-            </div>
-          </div>
-        <button class="btn" name='login' type="submit" (click)="login()"> Iniciar sesion
-     </button>
-  
+  <div class="img">
+    <img src="assets/bg.svg" alt="" />
+    <!-- <ng-lottie [options]="options" (animationCreated)="animationCreated($event)"></ng-lottie> -->
+  </div>
+  <div class="contenido-login">
+    <div class="cont">
+      <h2>Login</h2>
+      <div class="input-div nit">
+        <div class="i">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="div">
+          <input
+            type="text"
+            placeholder="Correo Electronico"
+            [(ngModel)]="this.body.usuario"
+          />
+        </div>
       </div>
+      <div class="input-div pass">
+        <div class="i">
+          <i class="fas fa-lock"></i>
+        </div>
+        <div class="div">
+          <input
+            type="password"
+            placeholder="Contraseña"
+            [(ngModel)]="this.body.contrasenia"
+          />
+        </div>
+      </div>
+      <button class="btn" name="login" type="submit" (click)="login()">
+        Iniciar sesion
+      </button>
     </div>
   </div>
+</div>
