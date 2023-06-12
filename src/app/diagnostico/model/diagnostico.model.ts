@@ -1,5 +1,8 @@
 import { Paciente } from 'src/app/paciente/model/paciente.model';
 
+/**
+ *   
+ */
 export interface Diagnostico {
   Fecha: string;
   Enfermedad: string;
