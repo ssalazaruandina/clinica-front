@@ -11,8 +11,6 @@ enum url {
   ELIMINAR    = `https://back-clinica-end.onrender.com/api/deleteMedico/`,
 }
 
-
-
 @Injectable({
   providedIn: 'root'
 })
