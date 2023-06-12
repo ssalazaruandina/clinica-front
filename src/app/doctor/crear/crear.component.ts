@@ -74,17 +74,17 @@ export class CrearComponent implements OnInit{
         timer: 1500,
       });
     }else{
-      // this.apiPaciente.crearPaciente(this.formPaciente.value).then(
-      //   () => {
-      //     Swal.fire({
-      //       position: 'top-end',
-      //       icon: 'success',
-      //       title: 'Registro Exitoso',
-      //       showConfirmButton: false,
-      //       timer: 1500
-      //     })
-      //     this.router.navigate(['paciente']);
-      // });  
+      this.apiDoctor.crearMedico(this.formDoctor.value).then(
+      () => {
+        Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Registro Exitoso',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      //this.router.navigate(['paciente']);
+      });  
     }
   }
 }
