@@ -1,14 +1,15 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ServicePaciente } from '../service/service-paciente.service';
 import { Paciente } from '../model/paciente.model';
 import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { extractDate } from 'src/app/shared/funtions/date.funtion';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
-  styleUrls: ['./listar.component.css'],
+  styleUrls: ['./listar.component.css']
 })
 export class ListarComponent implements OnInit {
   private respuesta: respuesta<Paciente> | any;
@@ -32,7 +33,15 @@ export class ListarComponent implements OnInit {
   }
 
   eliminar(id: string) {
-    this.servicePaciente.deletePaciente(id);
+    this.servicePaciente.deletePaciente(id).then(res=>{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'No se puede Eliminar este registro porque tiene Diagnosticos registrados',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    });
     this.ngOnInit()
     this.ngOnInit()
   }
