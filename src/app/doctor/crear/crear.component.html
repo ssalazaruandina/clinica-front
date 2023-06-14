@@ -25,11 +25,11 @@
                       />
                     </div>
                     <div class="form-group" style="margin-top: 10px">
-                      <label>Apellidos: </label>
+                      <label>Apellido: </label>
                       <input
                         type="text"
                         class="form-control"
-                        formControlName="Apellidos"
+                        formControlName="Apellido"
                         placeholder="Apellidos "
                         name="nombre"
                       />
@@ -48,8 +48,8 @@
                       <label>Genero:</label>
                       <select
                         class="form-control"
-                        formControlName="Sexo"
-                        name="sexo"
+                        formControlName="Genero"
+                        name="Genero"
                       >
                         <option value="" selected>Seleccione el Genero</option>
                         <option value="M">Masculino</option>
@@ -119,12 +119,12 @@
                       />
                     </div>
                     <div class="form-group" style="margin-top: 10px">
-                      <label>Nro Colegiado: </label>
+                      <label>Nro de Colegiatura: </label>
                       <input
                         type="text"
                         class="form-control"
-                        formControlName="NroColegiado"
-                        placeholder="NroColegiado: "
+                        formControlName="NumeroColegiatura"
+                        placeholder="NumeroColegiatura: "
                         name="apellidoP"
                       />
                     </div>
@@ -133,8 +133,8 @@
                       <input
                         type="text"
                         class="form-control"
-                        formControlName="DescripcionProfesional"
-                        placeholder="DescripcionProfesional: "
+                        formControlName="DescripcionProfecional"
+                        placeholder="DescripcionProfecional: "
                         name="apellidoP"
                       />
                     </div>
@@ -151,7 +151,7 @@
                         type="submit"
                         (click)="registrar()"
                         class="btn btn-primary"
-                        value="Registrar Paciente"
+                        value="Registrar Doctor"
                         style="margin-top: 10px; margin-left: 15px"
                       />
                     </div>
