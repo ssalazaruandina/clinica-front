@@ -39,9 +39,9 @@ export class ListarComponent implements OnInit{
   }
 
   eliminar(id: number) {
-    this.serviceDoctor.deleteMedico(id)
-    this.ngOnInit()
-    this.ngOnInit()
+    this.serviceDoctor.deleteMedico(id);
+    this.ngOnInit();
+    this.ngOnInit();
   }
 
   mostrarDetalle(id: number) {}
