@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CrearComponent } from './crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './editar/editar.component';
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   declarations: [PacienteComponent, ListarComponent, CrearComponent, EditarComponent],
@@ -18,7 +19,8 @@ import { EditarComponent } from './editar/editar.component';
     PacienteRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DataTablesModule
   ],
   exports: [],
   providers: [ServicePaciente],
