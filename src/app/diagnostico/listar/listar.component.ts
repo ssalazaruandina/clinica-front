@@ -4,6 +4,10 @@ import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { Diagnostico, DiagnosticoPaciente } from '../model/diagnostico.model';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+
 @Component({
   selector: 'app-listar',
   templateUrl: './listar.component.html',
@@ -12,7 +16,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListarComponent {
   private respuesta: respuesta<Diagnostico> | any;
   public diagnosticos: DiagnosticoPaciente[] = [];
-  //public id:string="";
+  public actualId:number;
 
   constructor(
     private ServiceDiagnostico: ServiceDiagnostico,
@@ -45,7 +49,7 @@ export class ListarComponent {
   }
 
   mostrarDetalle(id:number){
-    //this.id = id;
+    this.actualId = id;
   }
 
   generarDiagnostico(){
@@ -54,5 +58,45 @@ export class ListarComponent {
   salirModal(){
    //this.id = ""
   }
+
+  generarPDF(i:number){
+    const documentDefinition: any = {
+    content: [
+    { text: 'RECETA MÉDICA', style: 'titulo' },
+    { text: 'Enfermedad:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].Enfermedad , style: 'contenido' },
+    { text: 'Observaciones:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].Observaciones, style: 'contenido' },
+    { text: 'Fecha:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].Fecha, style: 'contenido' },
+    { text: 'Síntomas:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].Sintomas, style: 'contenido' },
+    { text: 'Tratamiento:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].Tratamiento, style: 'contenido' },
+  ],
+  styles: {
+    titulo: {
+      fontSize: 18,
+      bold: true,
+      alignment: 'center',
+      margin: [0, 0, 0, 20]
+    },
+    subtitulo: {
+      fontSize: 14,
+      bold: true,
+      margin: [0, 10, 0, 5]
+    },
+    contenido: {
+      fontSize: 12,
+      margin: [0, 0, 0, 10]
+    }
+  }}
+
+    const pdf = pdfMake.createPdf(documentDefinition);
+    pdf.open();
+  }
+
+  
+
 
 } 

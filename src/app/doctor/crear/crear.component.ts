@@ -54,6 +54,7 @@ export class CrearComponent implements OnInit{
   }
 
   public registrar():void{
+    console.log(this.formDoctor.value)
     if (
       this.formDoctor.controls['Nombre'].errors?.['required'] ||
       this.formDoctor.controls['Apellidos'].errors?.['required'] ||
