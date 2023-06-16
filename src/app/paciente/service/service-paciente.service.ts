@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { respuesta } from 'src/app/shared/interface/response.inteface';
 import { Paciente, PacienteBody } from '../model/paciente.model';
+import { Observable } from 'rxjs';
 
 enum url {
   LISTAR      = `https://back-clinica-end.onrender.com/api/pacientes`,
@@ -29,7 +30,7 @@ export class ServicePaciente {
   async actualizarPaciente(id: any, paciente: PacienteBody) {
     return this.http.put<respuesta<Paciente>>(url.ACTUALIZAR+id, paciente).toPromise();
   }
-  async deletePaciente(id: any) {
-    return this.http.delete(url.ELIMINAR+id).toPromise();
+  deletePaciente(id: any) {
+    return this.http.delete(url.ELIMINAR+id);
   }
 }

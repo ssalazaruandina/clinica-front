@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { decodedAccessToken } from 'src/app/shared/funtions/decoder.funtion';
 import Swal from 'sweetalert2';
+import { ServiceDiagnostico } from '../service/service-diagnostico.service';
 
 @Component({
   selector: 'app-crear',
@@ -25,6 +26,7 @@ export class CrearComponent implements OnInit {
     private route: ActivatedRoute,
     private cookieService: CookieService,
     private router: Router,
+    private diagnosticoService: ServiceDiagnostico
     
   ) {}
 
@@ -84,18 +86,17 @@ export class CrearComponent implements OnInit {
         timer: 1500,
       });
     }else{
-      // this.apiPaciente.crearPaciente(this.formDiagnostico.value).then(
-      //   () => {
-      //     this.pacientes.push(this.formDiagnostico.value)
-      //     Swal.fire({
-      //       position: 'top-end',
-      //       icon: 'success',
-      //       title: 'Registro Exitoso',
-      //       showConfirmButton: false,
-      //       timer: 1500
-      //     })
-      //     this.router.navigate(['paciente']);
-      // });  
+      this.diagnosticoService.crearDiagnostico(this.formDiagnostico.value).then(
+        () => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Registro Exitoso',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.router.navigate(['diagnostico']);
+      });  
       console.log("adentro ");
       
     }

@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { DiagnosticoRoutingModule } from './diagnostico-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListarComponent } from './listar/listar.component';
+import { EditarComponent } from './editar/editar.component';
 
 
 
@@ -13,7 +14,8 @@ import { ListarComponent } from './listar/listar.component';
   declarations: [
     CrearComponent,
     DiagnosticoComponent,
-    ListarComponent
+    ListarComponent,
+    EditarComponent
   ],
   imports: [
     CommonModule,

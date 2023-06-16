@@ -38,7 +38,11 @@ export class ListarComponent implements OnInit{
     });
   }
 
-  eliminar(id: number) {}
+  eliminar(id: number) {
+    this.serviceDoctor.deleteMedico(id);
+    this.ngOnInit();
+    this.ngOnInit();
+  }
 
   mostrarDetalle(id: number) {}
 }

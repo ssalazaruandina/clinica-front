@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { ServiceDoctor } from '../service/service-doctor.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -7,10 +12,9 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',
-  styleUrls: ['./crear.component.css']
+  styleUrls: ['./crear.component.css'],
 })
-export class CrearComponent implements OnInit{
-
+export class CrearComponent implements OnInit {
   constructor(
     private forBuilder: FormBuilder,
     private apiDoctor: ServiceDoctor,
@@ -20,7 +24,7 @@ export class CrearComponent implements OnInit{
   ngOnInit(): void {
     this.formDoctor = this.forBuilder.group({
       Nombre: ['', [Validators.required]],
-      Apellidos: ['', [Validators.required]],
+      Apellido: ['', [Validators.required]],
       FechaNacimiento: ['', [Validators.required]],
       Genero: ['', [Validators.required]],
       Direccion: ['', [Validators.required]],
@@ -36,7 +40,7 @@ export class CrearComponent implements OnInit{
 
   public formDoctor: FormGroup = new FormGroup({
     Nombre: new FormControl(''),
-    Apellidos: new FormControl(''),
+    Apellido: new FormControl(''),
     FechaNacimiento: new FormControl(''),
     Genero: new FormControl(''),
     Direccion: new FormControl(''),
@@ -49,8 +53,8 @@ export class CrearComponent implements OnInit{
     DescripcionProfecional: new FormControl(''),
   });
 
-  public cancelar():void{
-    this.router.navigate(['paciente']);
+  public cancelar(): void {
+    this.router.navigate(['doctor']);
   }
 
   public registrar():void{
@@ -75,17 +79,18 @@ export class CrearComponent implements OnInit{
         timer: 1500,
       });
     }else{
-      this.apiDoctor.crearMedico(this.formDoctor.value).then(
-      () => {
-        Swal.fire({
+    } */
+    console.log(this.formDoctor.value);
+    
+    this.apiDoctor.crearMedico(this.formDoctor.value).then(() => {
+      Swal.fire({
         position: 'top-end',
         icon: 'success',
         title: 'Registro Exitoso',
         showConfirmButton: false,
-        timer: 1500
-      })
-      //this.router.navigate(['paciente']);
-      });  
-    }
+        timer: 1500,
+      });
+      this.router.navigate(['doctor']);
+    });
   }
 }
