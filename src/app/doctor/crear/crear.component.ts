@@ -57,8 +57,9 @@ export class CrearComponent implements OnInit {
     this.router.navigate(['doctor']);
   }
 
-  public registrar(): void {
-    /*if  (
+  public registrar():void{
+    console.log(this.formDoctor.value)
+    if (
       this.formDoctor.controls['Nombre'].errors?.['required'] ||
       this.formDoctor.controls['Apellidos'].errors?.['required'] ||
       this.formDoctor.controls['FechaNacimiento'].errors?.['required'] ||
@@ -78,7 +79,7 @@ export class CrearComponent implements OnInit {
         timer: 1500,
       });
     }else{
-    } */
+    } 
     console.log(this.formDoctor.value);
     
     this.apiDoctor.crearMedico(this.formDoctor.value).then(() => {
