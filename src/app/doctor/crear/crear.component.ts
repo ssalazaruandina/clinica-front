@@ -79,7 +79,7 @@ export class CrearComponent implements OnInit {
         timer: 1500,
       });
     }else{
-    } */
+    } 
     console.log(this.formDoctor.value);
     
     this.apiDoctor.crearMedico(this.formDoctor.value).then(() => {
