@@ -40,16 +40,21 @@ export class ListarComponent implements OnInit {
 
   eliminar(id: string) {
     this.servicePaciente.deletePaciente(id).subscribe(
-      (error) => {  Swal.fire({
+      (res) => console.log('HTTP response', res),
+      (err) => {
+        console.log('HTTP error', err);
+        
+        Swal.fire({
         position: 'top-end',
         icon: 'error',
         title:
           'No se puede Eliminar este registro porque tiene Diagnosticos registrados',
         showConfirmButton: false,
         timer: 1500,
-      });  }
-    )
-    
+      });},
+      () => console.log('HTTP request completed.')
+      );
+
     this.ngOnInit();
     this.ngOnInit();
   }

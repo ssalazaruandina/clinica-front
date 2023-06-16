@@ -31,6 +31,6 @@ export class ServicePaciente {
     return this.http.put<respuesta<Paciente>>(url.ACTUALIZAR+id, paciente).toPromise();
   }
   deletePaciente(id: any) {
-    return this.http.delete(url.ELIMINAR+id);
+    return this.http.delete(url.ELIMINAR+id,{observe: 'response'});
   }
 }
