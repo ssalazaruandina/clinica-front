@@ -83,13 +83,23 @@
             type="button"
             class="btn-close"
             data-bs-dismiss="modal"
-            aria-label="Close"
+            aria-label="Cerrar"
             (click)="salirModal()"
           ></button>
         </div>
 
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
+        <div class="modal-body" *ngIf="dataPaciente">
+          <p><strong>Id                 :</strong>{{dataPaciente.IdPaciente}}</p>
+          <p><strong>Nombre             :</strong>{{dataPaciente.Nombre}}</p>
+          <p><strong>Apellidos          :</strong>{{dataPaciente.Apellidos}}</p>
+          <p><strong>Fecha Nacimiento   :</strong>{{dataPaciente.FechaNacimiento}}</p>
+          <p><strong>Sexo               :</strong>{{dataPaciente.Sexo}}</p>
+          <p><strong>Peso               :</strong>{{dataPaciente.Peso}}</p>
+          <p><strong>Altura             :</strong>{{dataPaciente.Altura}}</p>
+          <p><strong>Precion Arterial   :</strong>{{dataPaciente.PresionArterial}}</p>
+          <p><strong>Fecuencia Cardiaca :</strong>{{dataPaciente.FrecuenciaCardiaca}}</p>
+          <p><strong>Temperatura        :</strong>{{dataPaciente.Temperatura}}</p>
+          <p><strong>Observaciones      :</strong>{{dataPaciente.Observaciones}}</p>
         </div>
         <div class="modal-footer">
           <button
@@ -98,7 +108,7 @@
             data-bs-dismiss="modal"
             (click)="salirModal()"
           >
-            Close
+            Salir
           </button>
           <button
             data-bs-dismiss="modal"

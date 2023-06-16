@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { respuesta } from 'src/app/shared/interface/response.inteface';
+import { respuesta, respuestaDataModal } from 'src/app/shared/interface/response.inteface';
 import { Paciente, PacienteBody } from '../model/paciente.model';
 import { Observable } from 'rxjs';
 
@@ -22,7 +22,7 @@ export class ServicePaciente {
     return this.http.get<respuesta<Paciente>>(url.LISTAR).toPromise();
   }
   async buscarPaciente(id: string) {
-    return this.http.get<respuesta<Paciente>>(url.BUSCAR+id).toPromise();
+    return this.http.get<respuestaDataModal<Paciente>>(url.BUSCAR+id).toPromise();
   }
   async crearPaciente(paciente:PacienteBody ) {
     return this.http.post(url.CREAR, paciente).toPromise();

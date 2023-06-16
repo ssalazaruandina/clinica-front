@@ -1,2 +1,161 @@
-<p>editar works!</p>
-<h1>akfsbfkajbsfksabgjkasgjbaskjgbaskjgbsakjgbsakgbja</h1>
+<div class="editar">
+  <div class="container register">
+    <div class="row">
+      <div class="col-md-1 register-left"></div>
+      <div class="col-md-9 register-right">
+        <div class="tab-content" id="myTabContent">
+          <div
+            class="tab-pane fade show active"
+            id="home"
+            role="tabpanel"
+            aria-labelledby="home-tab"
+          >
+            <h3 class="register-heading">Actualizar Medico</h3>
+            <div class="row register-form">
+              <div class="col-md-6">
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Nombre: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Nombre "
+                    [(ngModel)]="this.doctor.Nombre"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Apellido: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Apellidos "
+                    [(ngModel)]="this.doctor.Apellido"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Fecha Nacimiento: </label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    placeholder="Fecha Nacimiento: "
+                    
+                    [(ngModel)]="this.doctor.FechaNacimiento"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Genero:</label>
+                  <select
+                    class="form-control"
+                    name="Genero"
+                    
+                    [(ngModel)]="this.doctor.Genero"
+                  >
+                    <option value="M" [selected]="doctor.Genero==='M'">Masculino</option>
+                    <option value="F" [selected]="doctor.Genero==='F'">Femenino</option>
+                  </select>
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Direccion: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Direccion: "
+                    [(ngModel)]="this.doctor.Direccion"
+                  />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Ciudad: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Ciudad: "
+                    
+                    [(ngModel)]="this.doctor.Ciudad"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Pais: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Pais: "
+                    
+                    [(ngModel)]="this.doctor.Pais"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Telefono: </label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="Telefono: "
+                    
+                    [(ngModel)]="this.doctor.Telefono"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Correo Electronico: </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="CorreoElectronico: "
+                    
+                    [(ngModel)]="this.doctor.CorreoElectronico"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Especialidad: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Especialidad: "
+                    
+                    [(ngModel)]="this.doctor.Especialidad"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Nro de Colegiatura: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="NumeroColegiatura: "
+                    
+                    [(ngModel)]="this.doctor.NumeroColegiatura"
+                  />
+                </div>
+                <div class="form-group" style="margin-top: 10px">
+                  <label>Descripcion Profesional: </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="DescripcionProfecional: "
+                    
+                    [(ngModel)]="this.doctor.DescripcionProfecional"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    (click)="cancelar()"
+                    class="btn btn-danger"
+                    value="Cancelar"
+                    style="margin-top: 10px"
+                  />
+                  <input
+                    type="submit"
+                    (click)="registrar()"
+                    class="btn btn-primary"
+                    value="Registrar Doctor"
+                    style="margin-top: 10px; margin-left: 15px"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { respuesta } from 'src/app/shared/interface/response.inteface';
+import { respuesta, respuestaDataModal } from 'src/app/shared/interface/response.inteface';
 import { Doctor, DoctorBody } from '../model/doctor.model';
 
 enum url {
@@ -22,7 +22,7 @@ export class ServiceDoctor {
     return this.http.get<respuesta<Doctor>>(url.LISTAR).toPromise();
   }
   async buscarMedico(id: string) {
-    return this.http.get<respuesta<Doctor>>(url.BUSCAR+id).toPromise();
+    return this.http.get<respuestaDataModal<Doctor>>(url.BUSCAR+id).toPromise();
   }
   async crearMedico(Medico:DoctorBody ) {
     return this.http.post(url.CREAR, Medico).toPromise();
@@ -30,7 +30,7 @@ export class ServiceDoctor {
   async actualizarMedico(id: any, Medico: DoctorBody) {
     return this.http.put<respuesta<Doctor>>(url.ACTUALIZAR+id, Medico).toPromise();
   }
-  async deleteMedico(id: any) {
-    return this.http.delete(url.ELIMINAR+id).toPromise();
+  deleteMedico(id: any) {
+    return this.http.delete(url.ELIMINAR+id);
   }
 }

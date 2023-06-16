@@ -63,5 +63,64 @@
         </tbody>
       </table>
     </div>
+
+    <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">
+            Detalles Paciente
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Cerrar"
+            (click)="salirModal()"
+          ></button>
+        </div>
+
+        <div class="modal-body" *ngIf="dataDoctor">
+          <p><strong>Id                 :</strong>{{dataDoctor.IdMedico}}</p>
+          <p><strong>Nombre             :</strong>{{dataDoctor.Nombre}}</p>
+          <p><strong>Apellidos          :</strong>{{dataDoctor.Apellido}}</p>
+          <p><strong>Fecha Nacimiento   :</strong>{{dataDoctor.FechaNacimiento}}</p>
+          <p><strong>Genero               :</strong>{{dataDoctor.Genero}}</p>
+          <p><strong>Direccion               :</strong>{{dataDoctor.Direccion}}</p>
+          <p><strong>Ciudad             :</strong>{{dataDoctor.Ciudad}}</p>
+          <p><strong>Pais   :</strong>{{dataDoctor.Pais}}</p>
+          <p><strong>Telefono :</strong>{{dataDoctor.Telefono}}</p>
+          <p><strong>Correo Electronico        :</strong>{{dataDoctor.CorreoElectronico}}</p>
+          <p><strong>Especialidad      :</strong>{{dataDoctor.Especialidad}}</p>
+          <p><strong>Numero Colegiatura      :</strong>{{dataDoctor.NumeroColegiatura}}</p>
+          <p><strong>Descripcion Profecional      :</strong>{{dataDoctor.DescripcionProfecional}}</p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+            (click)="salirModal()"
+          >
+            Salir
+          </button>
+          <button
+            data-bs-dismiss="modal"
+            routerLink="/diagnostico/crear/{{this.id}}"
+            type="button"
+            class="btn btn-primary"
+          >
+            Generar Diagnostico
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
   

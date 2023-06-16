@@ -1,7 +1,7 @@
 export interface Doctor {
   createdAd?: string;
   updateAd?: string;
-  IdMedico: number;
+  IdMedico: string;
   Nombre: string;
   Apellido: string;
   FechaNacimiento: string;

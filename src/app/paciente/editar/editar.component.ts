@@ -31,7 +31,8 @@ export class EditarComponent implements OnInit {
     private servicePaciente: ServicePaciente,
     private route: ActivatedRoute,
     private router:Router
-  ) {}
+  ) {
+  }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe((params) => {
