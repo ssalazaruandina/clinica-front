@@ -72,7 +72,7 @@ export class ListarComponent {
     { text: 'Síntomas:', style: 'subtitulo' },
     { text: this.diagnosticos[i].Sintomas, style: 'contenido' },
     { text: 'Tratamiento:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Tratamiento, style: 'contenido' },
+    { text: this.diagnosticos[i].Tratamiento, style: 'contenido' }
   ],
   styles: {
     titulo: {
@@ -91,7 +91,7 @@ export class ListarComponent {
       margin: [0, 0, 0, 10]
     }
   }}
-
+console.log("xd")
     const pdf = pdfMake.createPdf(documentDefinition);
     pdf.open();
   }
