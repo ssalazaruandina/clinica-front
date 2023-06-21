@@ -48,17 +48,6 @@ export class ListarComponent {
     });
   }
 
-  mostrarDetalle(id:number){
-    this.actualId = id;
-  }
-
-  generarDiagnostico(){
-  }
-
-  salirModal(){
-   //this.id = ""
-  }
-
   generarPDF(i:number){
     const documentDefinition: any = {
     content: [
@@ -95,7 +84,6 @@ export class ListarComponent {
       margin: [0, 0, 0, 10]
     }
   }}
-console.log("xd")
     const pdf = pdfMake.createPdf(documentDefinition);
     pdf.open();
   }
