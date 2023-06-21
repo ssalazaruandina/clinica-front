@@ -63,6 +63,10 @@ export class ListarComponent {
     const documentDefinition: any = {
     content: [
     { text: 'RECETA MÉDICA', style: 'titulo' },
+    { text: 'Nombre:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].id.Nombre , style: 'contenido' },
+    { text: 'Apellidos:', style: 'subtitulo' },
+    { text: this.diagnosticos[i].id.Apellidos , style: 'contenido' },
     { text: 'Enfermedad:', style: 'subtitulo' },
     { text: this.diagnosticos[i].Enfermedad , style: 'contenido' },
     { text: 'Observaciones:', style: 'subtitulo' },
