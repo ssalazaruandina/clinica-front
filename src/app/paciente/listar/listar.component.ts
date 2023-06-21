@@ -160,7 +160,6 @@ export class ListarComponent implements OnInit {
       ]);
     }
 
-    console.log(datosHistorial);
     const table = {
       table: {
         body: datosHistorial,
