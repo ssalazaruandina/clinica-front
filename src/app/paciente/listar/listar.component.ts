@@ -15,10 +15,11 @@ import { extractDate } from 'src/app/shared/funtions/date.funtion';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Subject } from 'rxjs';
-import { Diagnostico} from 'src/app/diagnostico/model/diagnostico.model';
+import { Diagnostico } from 'src/app/diagnostico/model/diagnostico.model';
 
 import * as pdfMake from 'pdfmake/build/pdfmake';
 import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+import { style } from '@angular/animations';
 (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
@@ -102,15 +103,27 @@ export class ListarComponent implements OnInit {
   generarPDF(data: Diagnostico[]) {
     const documentDefinition: any = {
       content: [
+        { text: 'Historial de Diagnosticos', style: 'titulo' },
         {
           text:
+            'Paciente: ' +
             this.dataPaciente.Nombre +
             ' ' +
-            this.dataPaciente.Apellidos +
-            ' ' +
-            this.dataPaciente.FechaNacimiento,
+            this.dataPaciente.Apellidos,
           style: 'contenido',
-        }
+        },
+        {
+          text:
+            'Fecha de Nacimiento: ' +
+            ' ' +
+            this.dataPaciente.FechaNacimiento.split('T')[0],
+            style: 'contenido',
+        },
+        {
+          text: 'Sexo: ' + ' ' + this.dataPaciente.Sexo,
+          style: 'contenido'
+        },
+        {text: 'Historial de diagnósticos: ', style: 'subtitulo'}
       ],
       styles: {
         titulo: {
@@ -130,14 +143,33 @@ export class ListarComponent implements OnInit {
         },
       },
     };
+    
+    const datosHistorial = [
+      ["#", "Fecha", "Enfermedad", "Tratamiento", "Sintomas", "Observaciones"]
+    ];
 
     for (let i = 0; i < data.length; i++) {
-    // Agrega los elementos al contenido del informe
+      // Agrega los elementos al contenido del informe
+      datosHistorial.push([
+        `${i + 1}`,
+        `${data[i].Fecha.split('T')[0]}`,
+        `${data[i].Enfermedad}`,
+        `${data[i].Tratamiento}`,
+        `${data[i].Sintomas}`,
+        `${data[i].Observaciones}`
+      ]);
+    }
+
+    console.log(datosHistorial);
+    const table = {
+      table: {
+        body: datosHistorial,
+      },
+    };
+
     documentDefinition.content.push(
-      `${i + 1}: ${data[i].Fecha}, ${data[i].Enfermedad}, ${data[i].Tratamiento}`,
-      " "
+      table
     );
-  }
 
     const pdf = pdfMake.createPdf(documentDefinition);
     pdf.open();
