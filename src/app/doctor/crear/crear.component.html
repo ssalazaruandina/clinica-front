@@ -1,167 +1,96 @@
 <div class="crear">
-    <div class="container register">
-      <form [formGroup]="this.formDoctor">
-        <div class="row">
-          <div class="col-md-1 register-left"></div>
-          <div class="col-md-9 register-right">
-            <div class="tab-content" id="myTabContent">
-              <div
-                class="tab-pane fade show active"
-                id="home"
-                role="tabpanel"
-                aria-labelledby="home-tab"
-              >
-                <h3 class="register-heading">Registrar Nuevo Medico</h3>
-                <div class="row register-form">
-                  <div class="col-md-6">
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Nombre: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Nombre"
-                        placeholder="Nombre "
-                        name="apellidoP"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Apellido: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Apellido"
-                        placeholder="Apellidos "
-                        name="nombre"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Fecha Nacimiento: </label>
-                      <input
-                        type="date"
-                        class="form-control"
-                        formControlName="FechaNacimiento"
-                        placeholder="Fecha Nacimiento: "
-                        name="apellidoP"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Genero:</label>
-                      <select
-                        class="form-control"
-                        formControlName="Genero"
-                        name="Genero"
-                      >
-                        <option value="" selected>Seleccione el Genero</option>
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                      </select>
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Direccion: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Direccion"
-                        placeholder="Direccion: "
-                        name="apellidoP"
-                      />
-                    </div>
+  <div class="container register">
+    <form [formGroup]="this.formDoctor">
+      <div class="row">
+        <div class="col-md-1 register-left"></div>
+        <div class="col-md-9 register-right">
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+              <h3 class="register-heading">Registrar Nuevo Medico</h3>
+              <div class="row register-form">
+                <div class="col-md-6">
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Nombre: </label>
+                    <input type="text" class="form-control" formControlName="Nombre" placeholder="Nombre "
+                      name="apellidoP" />
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Ciudad: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Ciudad"
-                        placeholder="Ciudad: "
-                        name="apellidoM"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Pais: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Pais"
-                        placeholder="Pais: "
-                        name="nombre"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Telefono: </label>
-                      <input
-                        type="number"
-                        class="form-control"
-                        formControlName="Telefono"
-                        placeholder="Telefono: "
-                        name="apellidoP"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Correo Electronico: </label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        formControlName="CorreoElectronico"
-                        placeholder="CorreoElectronico: "
-                        name="nombre"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Especialidad: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="Especialidad"
-                        placeholder="Especialidad: "
-                        name="apellidoP"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Nro de Colegiatura: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="NumeroColegiatura"
-                        placeholder="NumeroColegiatura: "
-                        name="apellidoP"
-                      />
-                    </div>
-                    <div class="form-group" style="margin-top: 10px">
-                      <label>Descripcion Profesional: </label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        formControlName="DescripcionProfecional"
-                        placeholder="DescripcionProfecional: "
-                        name="apellidoP"
-                      />
-                    </div>
-                    
-                    <div class="form-group">
-                      <input
-                        type="submit"
-                        (click)="cancelar()"
-                        class="btn btn-danger"
-                        value="Cancelar"
-                        style="margin-top: 10px"
-                      />
-                      <input
-                        type="submit"
-                        (click)="registrar()"
-                        class="btn btn-primary"
-                        value="Registrar Doctor"
-                        style="margin-top: 10px; margin-left: 15px"
-                      />
-                    </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Apellido: </label>
+                    <input type="text" class="form-control" formControlName="Apellido" placeholder="Apellidos "
+                      name="nombre" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Fecha Nacimiento: </label>
+                    <input type="date" class="form-control" formControlName="FechaNacimiento"
+                      placeholder="Fecha Nacimiento: " name="apellidoP" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Genero:</label>
+                    <select class="form-control" formControlName="Genero" name="Genero">
+                      <option value="" selected>Seleccione el Genero</option>
+                      <option value="M">Masculino</option>
+                      <option value="F">Femenino</option>
+                    </select>
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Direccion: </label>
+                    <input type="text" class="form-control" formControlName="Direccion" placeholder="Direccion: "
+                      name="apellidoP" />
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Ciudad: </label>
+                    <input type="text" class="form-control" formControlName="Ciudad" placeholder="Ciudad: "
+                      name="apellidoM" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Pais: </label>
+                    <input type="text" class="form-control" formControlName="Pais" placeholder="Pais: " name="nombre" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Telefono: </label>
+                    <input type="number" class="form-control" formControlName="Telefono" placeholder="Telefono: "
+                      name="apellidoP" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Correo Electronico: </label>
+                    <input type="email" class="form-control" formControlName="CorreoElectronico"
+                      placeholder="CorreoElectronico: " name="nombre" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Contrasenia </label>
+                    <input type="password" class="form-control" formControlName="Contrasenia"
+                      placeholder="Contraseña " name="nombre" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Especialidad: </label>
+                    <input type="text" class="form-control" formControlName="Especialidad" placeholder="Especialidad: "
+                      name="apellidoP" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Nro de Colegiatura: </label>
+                    <input type="text" class="form-control" formControlName="NumeroColegiatura"
+                      placeholder="NumeroColegiatura: " name="apellidoP" />
+                  </div>
+                  <div class="form-group" style="margin-top: 10px">
+                    <label>Descripcion Profesional: </label>
+                    <input type="text" class="form-control" formControlName="DescripcionProfecional"
+                      placeholder="Descripcion profesional: " name="apellidoP" />
+                  </div>
+
+                  <div class="form-group">
+                    <input type="submit" (click)="cancelar()" class="btn btn-danger" value="Cancelar"
+                      style="margin-top: 10px" />
+                    <input type="submit" (click)="registrar()" class="btn btn-primary" value="Registrar Doctor"
+                      style="margin-top: 10px; margin-left: 15px" />
                   </div>
                 </div>
               </div>            
             </div>
           </div>         
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </div>
-  
+</div>

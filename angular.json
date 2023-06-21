@@ -18,11 +18,10 @@
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css", "node_modules/datatables.net-dt/css/jquery.dataTables.css"],
-            "scripts": [ "node_modules/jquery/dist/jquery.js",
-            "node_modules/datatables.net/js/jquery.dataTables.js"],
-            "allowedCommonJsDependencies": ["lottie-web","sweetalert2","pdfmake/build/pdfmake","pdfmake/build/vfs_fonts"]
+            "assets": ["src/favicon.ico", "src/assets",{"glob":"_redirects", "input":"src", "output":"/"}],
+            "styles": ["src/styles.css"],
+            "scripts": [],
+            "allowedCommonJsDependencies": ["lottie-web","sweetalert2"]
           },
           "configurations": {
             "production": {

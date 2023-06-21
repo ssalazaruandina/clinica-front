@@ -27,6 +27,7 @@ export interface DoctorBody {
     Pais: string
     Telefono: string
     CorreoElectronico: string
+    Contrasenia: string;
     Especialidad: string
     NumeroColegiatura: string
     DescripcionProfecional: string
