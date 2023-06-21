@@ -53,7 +53,6 @@ export class ListarComponent implements OnInit {
     });
   }
 
-<<<<<<< HEAD
   generarPDF(i: number) {
     const documentDefinition: any = {
       content: [
@@ -96,44 +95,6 @@ export class ListarComponent implements OnInit {
       },
     };
 
-=======
-  generarPDF(i:number){
-    const documentDefinition: any = {
-    content: [
-    { text: 'RECETA MÉDICA', style: 'titulo' },
-    { text: 'Nombre:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].id.Nombre , style: 'contenido' },
-    { text: 'Apellidos:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].id.Apellidos , style: 'contenido' },
-    { text: 'Enfermedad:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Enfermedad , style: 'contenido' },
-    { text: 'Observaciones:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Observaciones, style: 'contenido' },
-    { text: 'Fecha:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Fecha, style: 'contenido' },
-    { text: 'Síntomas:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Sintomas, style: 'contenido' },
-    { text: 'Tratamiento:', style: 'subtitulo' },
-    { text: this.diagnosticos[i].Tratamiento, style: 'contenido' }
-  ],
-  styles: {
-    titulo: {
-      fontSize: 18,
-      bold: true,
-      alignment: 'center',
-      margin: [0, 0, 0, 20]
-    },
-    subtitulo: {
-      fontSize: 14,
-      bold: true,
-      margin: [0, 10, 0, 5]
-    },
-    contenido: {
-      fontSize: 12,
-      margin: [0, 0, 0, 10]
-    }
-  }}
->>>>>>> b7f14c99d683c716567d4296b2fe7f4cad21aa5a
     const pdf = pdfMake.createPdf(documentDefinition);
     pdf.open();
   }
