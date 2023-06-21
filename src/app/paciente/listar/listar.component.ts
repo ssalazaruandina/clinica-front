@@ -15,6 +15,11 @@ import { extractDate } from 'src/app/shared/funtions/date.funtion';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Subject } from 'rxjs';
+import { Diagnostico} from 'src/app/diagnostico/model/diagnostico.model';
+
+import * as pdfMake from 'pdfmake/build/pdfmake';
+import * as pdfFonts from 'pdfmake/build/vfs_fonts';
+(pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-listar',
@@ -24,6 +29,7 @@ import { Subject } from 'rxjs';
 export class ListarComponent implements OnInit {
   private respuesta: respuesta<Paciente> | any;
   public pacientes: Paciente[] = [];
+  public historial: Diagnostico[] = [];
   public id: string = '';
   public dataPaciente!: Paciente;
   public page: number = 0;
@@ -85,6 +91,57 @@ export class ListarComponent implements OnInit {
     });
   }
 
+  generarHistorial(id: string) {
+    this.servicePaciente.buscarHistorial(id).subscribe((res) => {
+      this.respuesta = res;
+      this.historial = this.respuesta.data;
+      this.generarPDF(this.historial);
+    });
+  }
+
+  generarPDF(data: Diagnostico[]) {
+    const documentDefinition: any = {
+      content: [
+        {
+          text:
+            this.dataPaciente.Nombre +
+            ' ' +
+            this.dataPaciente.Apellidos +
+            ' ' +
+            this.dataPaciente.FechaNacimiento,
+          style: 'contenido',
+        }
+      ],
+      styles: {
+        titulo: {
+          fontSize: 18,
+          bold: true,
+          alignment: 'center',
+          margin: [0, 0, 0, 20],
+        },
+        subtitulo: {
+          fontSize: 14,
+          bold: true,
+          margin: [0, 10, 0, 5],
+        },
+        contenido: {
+          fontSize: 12,
+          margin: [0, 0, 0, 10],
+        },
+      },
+    };
+
+    for (let i = 0; i < data.length; i++) {
+    // Agrega los elementos al contenido del informe
+    documentDefinition.content.push(
+      `${i + 1}: ${data[i].Fecha}, ${data[i].Enfermedad}, ${data[i].Tratamiento}`,
+      " "
+    );
+  }
+
+    const pdf = pdfMake.createPdf(documentDefinition);
+    pdf.open();
+  }
 
   salirModal() {
     this.id = '';

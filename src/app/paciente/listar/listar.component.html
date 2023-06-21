@@ -2,19 +2,10 @@
   <h2>Listado de Pacientes</h2>
 
   <div class="conteiner">
-    <a
-      routerLink="./crear"
-      type="button"
-      class="btn btn-success btn-opacity my-3"
-      >Añadir nuevo paciente
+    <a routerLink="./crear" type="button" class="btn btn-success btn-opacity my-3">Añadir nuevo paciente
     </a>
-    <input
-      type="text"
-      class="form-control mb-2"
-      placeholder="Buscar paciente"
-      #txtBuscar
-      (keyup)="onBuscarPaciente(txtBuscar.value)"
-    />
+    <input type="text" class="form-control mb-2" placeholder="Buscar paciente" #txtBuscar
+      (keyup)="onBuscarPaciente(txtBuscar.value)" />
 
     <table class="table">
       <thead>
@@ -37,29 +28,16 @@
           <td>{{ element.Peso }} kg</td>
           <td>{{ element.Altura }} cm</td>
           <td>
-            <button
-              type="button"
-              class="btn btn-primary"
-              style="margin-right: 10px"
-              routerLink="./editar/{{ element.IdPaciente }}"
-            >
+            <button type="button" class="btn btn-primary" style="margin-right: 10px"
+              routerLink="./editar/{{ element.IdPaciente }}">
               Editar
             </button>
-            <button
-              type="button"
-              style="margin-right: 10px"
-              (click)="eliminar(element.IdPaciente)"
-              class="btn btn-danger"
-            >
+            <button type="button" style="margin-right: 10px" (click)="eliminar(element.IdPaciente)"
+              class="btn btn-danger">
               Eliminar
             </button>
-            <button
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-              class="btn btn-warning"
-              (click)="mostrarDetalle(element.IdPaciente)"
-            >
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-warning"
+              (click)="mostrarDetalle(element.IdPaciente)">
               Mas
             </button>
           </td>
@@ -71,29 +49,19 @@
     </table>
     <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
     &nbsp;
-    <button class="btn btn-primary" (click)="nextPage()" [disabled]="( pacientes | filtro : page:buscar).length===0">Siguientes</button>
+    <button class="btn btn-primary" (click)="nextPage()"
+      [disabled]="( pacientes | filtro : page:buscar).length===0">Siguientes</button>
   </div>
 
-  <div
-    class="modal fade"
-    id="exampleModal"
-    tabindex="-1"
-    aria-labelledby="exampleModalLabel"
-    aria-hidden="true"
-  >
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
           <h1 class="modal-title fs-5" id="exampleModalLabel">
             Detalles Paciente
           </h1>
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="modal"
-            aria-label="Cerrar"
-            (click)="salirModal()"
-          ></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"
+            (click)="salirModal()"></button>
         </div>
 
         <div class="modal-body" *ngIf="dataPaciente">
@@ -101,19 +69,16 @@
           <p><strong>Nombre :</strong>{{ dataPaciente.Nombre }}</p>
           <p><strong>Apellidos :</strong>{{ dataPaciente.Apellidos }}</p>
           <p>
-            <strong>Fecha Nacimiento :</strong
-            >{{ dataPaciente.FechaNacimiento }}
+            <strong>Fecha Nacimiento :</strong>{{ dataPaciente.FechaNacimiento }}
           </p>
           <p><strong>Sexo :</strong>{{ dataPaciente.Sexo }}</p>
           <p><strong>Peso :</strong>{{ dataPaciente.Peso }}</p>
           <p><strong>Altura :</strong>{{ dataPaciente.Altura }}</p>
           <p>
-            <strong>Precion Arterial :</strong
-            >{{ dataPaciente.PresionArterial }}
+            <strong>Presion Arterial :</strong>{{ dataPaciente.PresionArterial }}
           </p>
           <p>
-            <strong>Fecuencia Cardiaca :</strong
-            >{{ dataPaciente.FrecuenciaCardiaca }}
+            <strong>Frecuencia Cardiaca :</strong>{{ dataPaciente.FrecuenciaCardiaca }}
           </p>
           <p><strong>Temperatura :</strong>{{ dataPaciente.Temperatura }}</p>
           <p>
@@ -121,20 +86,15 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-            (click)="salirModal()"
-          >
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="salirModal()">
             Salir
           </button>
-          <button
-            data-bs-dismiss="modal"
-            routerLink="/diagnostico/crear/{{ this.id }}"
-            type="button"
-            class="btn btn-primary"
-          >
+          <button data-bs-dismiss="modal" type="button"
+            class="btn btn-warning" (click)="generarHistorial(dataPaciente.IdPaciente)">
+            Historial PDF
+          </button>
+          <button data-bs-dismiss="modal" routerLink="/diagnostico/crear/{{ this.id }}" type="button"
+            class="btn btn-primary">
             Generar Diagnostico
           </button>
         </div>
