@@ -32,6 +32,7 @@ export class CrearComponent implements OnInit {
       Pais: ['', [Validators.required]],
       Telefono: ['', [Validators.required]],
       CorreoElectronico: ['', [Validators.required]],
+      Contrasenia: ['', [Validators.required]],
       Especialidad: ['', [Validators.required]],
       NumeroColegiatura: ['', [Validators.required]],
       DescripcionProfecional: ['', [Validators.required]],
@@ -48,6 +49,7 @@ export class CrearComponent implements OnInit {
     Pais: new FormControl(''),
     Telefono: new FormControl(''),
     CorreoElectronico: new FormControl(''),
+    Contrasenia: new FormControl(''),
     Especialidad: new FormControl(''),
     NumeroColegiatura: new FormControl(''),
     DescripcionProfecional: new FormControl(''),
@@ -61,13 +63,14 @@ export class CrearComponent implements OnInit {
     console.log(this.formDoctor.value)
     if (
       this.formDoctor.controls['Nombre'].errors?.['required'] ||
-      this.formDoctor.controls['Apellidos'].errors?.['required'] ||
+      this.formDoctor.controls['Apellido'].errors?.['required'] ||
       this.formDoctor.controls['FechaNacimiento'].errors?.['required'] ||
       this.formDoctor.controls['Genero'].errors?.['required'] ||
       this.formDoctor.controls['Ciudad'].errors?.['required'] ||
       this.formDoctor.controls['Pais'].errors?.['required'] ||
       this.formDoctor.controls['Telefono'].errors?.['required'] ||
       this.formDoctor.controls['CorreoElectronico'].errors?.['required'] ||
+      this.formDoctor.controls['Contrasenia'].errors?.['required'] ||
       this.formDoctor.controls['Especialidad'].errors?.['required'] ||
       this.formDoctor.controls['NumeroColegiatura'].errors?.['required'] ||
       this.formDoctor.controls['DescripcionProfecional'].errors?.['required']
