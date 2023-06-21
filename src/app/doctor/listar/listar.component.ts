@@ -18,6 +18,9 @@ export class ListarComponent implements OnInit {
   public doctores: Doctor[] = [];
   public id: string = '';
   public dataDoctor!: Doctor;
+  
+  public page: number = 0;
+  public buscar: string = '';
 
   constructor(
     private serviceDoctor: ServiceDoctor,
@@ -96,5 +99,19 @@ export class ListarComponent implements OnInit {
 
   async datosPersonales(id: string): Promise<respuestaDataModal<Doctor>> {
     return this.serviceDoctor.buscarMedico(id);
+  }
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page -= 5;
+    }
+  }
+
+  onBuscarDoctor(buscar: string) {
+    this.page = 0;
+    this.buscar = buscar;
   }
 }

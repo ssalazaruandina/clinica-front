@@ -18,8 +18,8 @@ enum url {
 export class ServicePaciente {
   constructor(private http: HttpClient) {}
 
-  async listarPacientes(){
-    return this.http.get<respuesta<Paciente>>(url.LISTAR).toPromise();
+  listarPacientes(){
+    return this.http.get<respuesta<Paciente>>(url.LISTAR);
   }
   async buscarPaciente(id: string) {
     return this.http.get<respuestaDataModal<Paciente>>(url.BUSCAR+id).toPromise();

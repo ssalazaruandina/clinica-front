@@ -10,9 +10,10 @@ import { CrearComponent } from './crear/crear.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarComponent } from './editar/editar.component';
 import { DataTablesModule } from 'angular-datatables';
+import { FiltroPipe } from './pipes/filtro.pipe';
 
 @NgModule({
-  declarations: [PacienteComponent, ListarComponent, CrearComponent, EditarComponent],
+  declarations: [PacienteComponent, ListarComponent, CrearComponent, EditarComponent, FiltroPipe],
   imports: [
     CommonModule,
     SharedModule,

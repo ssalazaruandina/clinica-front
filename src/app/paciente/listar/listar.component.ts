@@ -14,6 +14,7 @@ import {
 import { extractDate } from 'src/app/shared/funtions/date.funtion';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-listar',
@@ -25,13 +26,15 @@ export class ListarComponent implements OnInit {
   public pacientes: Paciente[] = [];
   public id: string = '';
   public dataPaciente!: Paciente;
+  public page: number = 0;
+  public buscar: string = '';
 
   constructor(
     private servicePaciente: ServicePaciente,
     private router: Router,
     private route: ActivatedRoute
   ) {
-    console.log("adentro del componente");
+    console.log('adentro del componente');
     this.ngOnInit();
   }
 
@@ -68,7 +71,7 @@ export class ListarComponent implements OnInit {
   }
 
   cargarDatos() {
-    this.servicePaciente.listarPacientes().then((res) => {
+    this.servicePaciente.listarPacientes().subscribe((res) => {
       this.respuesta = res;
       this.pacientes = this.respuesta.data;
       this.convertDateList();
@@ -82,7 +85,6 @@ export class ListarComponent implements OnInit {
     });
   }
 
-  generarDiagnostico() {}
 
   salirModal() {
     this.id = '';
@@ -103,5 +105,20 @@ export class ListarComponent implements OnInit {
 
   async datosPersonales(id: string): Promise<respuestaDataModal<Paciente>> {
     return this.servicePaciente.buscarPaciente(id);
+  }
+
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page -= 5;
+    }
+  }
+
+  onBuscarPaciente(buscar: string) {
+    this.page = 0;
+    this.buscar = buscar;
   }
 }

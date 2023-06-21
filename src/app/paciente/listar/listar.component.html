@@ -8,23 +8,28 @@
       class="btn btn-success btn-opacity my-3"
       >Añadir nuevo paciente
     </a>
+    <input
+      type="text"
+      class="form-control mb-2"
+      placeholder="Buscar paciente"
+      #txtBuscar
+      (keyup)="onBuscarPaciente(txtBuscar.value)"
+    />
 
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Codigo</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Apellidos</th>
-          <th scope="col">Fecha Nacimiento</th>
-          <th scope="col">Sexo</th>
-          <th scope="col">Peso</th>
-          <th scope="col">Altura</th>
-          <th scope="col">Acciones</th>
+          <th>Nombre</th>
+          <th>Apellidos</th>
+          <th>Fecha Nacimiento</th>
+          <th>Sexo</th>
+          <th>Peso</th>
+          <th>Altura</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let element of pacientes; index as i">
-          <td>{{ element.IdPaciente }}</td>
+        <tr *ngFor="let element of pacientes | filtro : page:buscar; index as i">
           <td>{{ element.Nombre }}</td>
           <td>{{ element.Apellidos }}</td>
           <td>{{ element.FechaNacimiento }}</td>
@@ -60,12 +65,13 @@
           </td>
         </tr>
         <tr *ngIf="this.pacientes.length == 0">
-          <td colspan="11" class="text-center">No hay registros</td>
+          <td class="text-center">No hay registros</td>
         </tr>
       </tbody>
     </table>
-
-    
+    <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="nextPage()" [disabled]="( pacientes | filtro : page:buscar).length===0">Siguientes</button>
   </div>
 
   <div
@@ -91,17 +97,28 @@
         </div>
 
         <div class="modal-body" *ngIf="dataPaciente">
-          <p><strong>Id                 :</strong>{{dataPaciente.IdPaciente}}</p>
-          <p><strong>Nombre             :</strong>{{dataPaciente.Nombre}}</p>
-          <p><strong>Apellidos          :</strong>{{dataPaciente.Apellidos}}</p>
-          <p><strong>Fecha Nacimiento   :</strong>{{dataPaciente.FechaNacimiento}}</p>
-          <p><strong>Sexo               :</strong>{{dataPaciente.Sexo}}</p>
-          <p><strong>Peso               :</strong>{{dataPaciente.Peso}}</p>
-          <p><strong>Altura             :</strong>{{dataPaciente.Altura}}</p>
-          <p><strong>Precion Arterial   :</strong>{{dataPaciente.PresionArterial}}</p>
-          <p><strong>Fecuencia Cardiaca :</strong>{{dataPaciente.FrecuenciaCardiaca}}</p>
-          <p><strong>Temperatura        :</strong>{{dataPaciente.Temperatura}}</p>
-          <p><strong>Observaciones      :</strong>{{dataPaciente.Observaciones}}</p>
+          <p><strong>Id :</strong>{{ dataPaciente.IdPaciente }}</p>
+          <p><strong>Nombre :</strong>{{ dataPaciente.Nombre }}</p>
+          <p><strong>Apellidos :</strong>{{ dataPaciente.Apellidos }}</p>
+          <p>
+            <strong>Fecha Nacimiento :</strong
+            >{{ dataPaciente.FechaNacimiento }}
+          </p>
+          <p><strong>Sexo :</strong>{{ dataPaciente.Sexo }}</p>
+          <p><strong>Peso :</strong>{{ dataPaciente.Peso }}</p>
+          <p><strong>Altura :</strong>{{ dataPaciente.Altura }}</p>
+          <p>
+            <strong>Precion Arterial :</strong
+            >{{ dataPaciente.PresionArterial }}
+          </p>
+          <p>
+            <strong>Fecuencia Cardiaca :</strong
+            >{{ dataPaciente.FrecuenciaCardiaca }}
+          </p>
+          <p><strong>Temperatura :</strong>{{ dataPaciente.Temperatura }}</p>
+          <p>
+            <strong>Observaciones :</strong>{{ dataPaciente.Observaciones }}
+          </p>
         </div>
         <div class="modal-footer">
           <button
@@ -114,7 +131,7 @@
           </button>
           <button
             data-bs-dismiss="modal"
-            routerLink="/diagnostico/crear/{{this.id}}"
+            routerLink="/diagnostico/crear/{{ this.id }}"
             type="button"
             class="btn btn-primary"
           >

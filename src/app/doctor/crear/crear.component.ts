@@ -58,18 +58,19 @@ export class CrearComponent implements OnInit {
   }
 
   public registrar():void{
-    console.log(this.formDoctor.value)
     if (
       this.formDoctor.controls['Nombre'].errors?.['required'] ||
-      this.formDoctor.controls['Apellidos'].errors?.['required'] ||
+      this.formDoctor.controls['Apellido'].errors?.['required'] ||
       this.formDoctor.controls['FechaNacimiento'].errors?.['required'] ||
-      this.formDoctor.controls['Sexo'].errors?.['required'] ||
-      this.formDoctor.controls['Peso'].errors?.['required'] ||
-      this.formDoctor.controls['Altura'].errors?.['required'] ||
-      this.formDoctor.controls['PresionArterial'].errors?.['required'] ||
-      this.formDoctor.controls['FrecuenciaCardiaca'].errors?.['required'] ||
-      this.formDoctor.controls['Temperatura'].errors?.['required'] ||
-      this.formDoctor.controls['Observaciones'].errors?.['required']
+      this.formDoctor.controls['Genero'].errors?.['required'] ||
+      this.formDoctor.controls['Direccion'].errors?.['required'] ||
+      this.formDoctor.controls['Ciudad'].errors?.['required'] ||
+      this.formDoctor.controls['Pais'].errors?.['required'] ||
+      this.formDoctor.controls['Telefono'].errors?.['required'] ||
+      this.formDoctor.controls['CorreoElectronico'].errors?.['required'] ||
+      this.formDoctor.controls['Especialidad'].errors?.['required'] ||
+      this.formDoctor.controls['NumeroColegiatura'].errors?.['required'] ||
+      this.formDoctor.controls['DescripcionProfecional'].errors?.['required'] 
     ) {
       Swal.fire({
         position: 'top-end',
@@ -79,18 +80,19 @@ export class CrearComponent implements OnInit {
         timer: 1500,
       });
     }else{
+      this.apiDoctor.crearMedico(this.formDoctor.value).then(
+        () => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Registro Exitoso',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.router.navigate(['doctor']);
+      });  
     } 
-    console.log(this.formDoctor.value);
     
-    this.apiDoctor.crearMedico(this.formDoctor.value).then(() => {
-      Swal.fire({
-        position: 'top-end',
-        icon: 'success',
-        title: 'Registro Exitoso',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-      this.router.navigate(['doctor']);
-    });
+    
   }
 }

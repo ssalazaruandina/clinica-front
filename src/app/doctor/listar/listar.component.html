@@ -8,6 +8,14 @@
         class="btn btn-success btn-opacity my-3"
         >Añadir nuevo doctor
       </a>
+
+      <input
+      type="text"
+      class="form-control mb-2"
+      placeholder="Buscar paciente"
+      #txtBuscar
+      (keyup)="onBuscarDoctor(txtBuscar.value)"
+    />
   
       <table class="table">
         <thead>
@@ -22,7 +30,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let element of doctores; index as i">
+          <tr *ngFor="let element of doctores | filtroDoc:page:buscar; index as i">
             <td>{{ element.IdMedico }}</td>
             <td>{{ element.Nombre }}</td>
             <td>{{ element.Apellido }}</td>
@@ -62,6 +70,9 @@
           </tr>
         </tbody>
       </table>
+      <button class="btn btn-primary" (click)="prevPage()">Anteriores</button>
+    &nbsp;
+    <button class="btn btn-primary" (click)="nextPage()" [disabled]="( doctores | filtroDoc : page:buscar).length===0">Siguientes</button>
     </div>
 
     <div

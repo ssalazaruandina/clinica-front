@@ -8,9 +8,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListarComponent } from './listar/listar.component';
 import { CrearComponent } from './crear/crear.component';
 import { EditarComponent } from './editar/editar.component';
+import { FiltroDocPipe } from './pipes/filtro-doc.pipe';
 
 @NgModule({
-  declarations: [DoctorComponent,ListarComponent,CrearComponent,EditarComponent],
+  declarations: [DoctorComponent,ListarComponent,CrearComponent,EditarComponent, FiltroDocPipe],
   imports: [
     CommonModule,
     DoctorRoutingModule,

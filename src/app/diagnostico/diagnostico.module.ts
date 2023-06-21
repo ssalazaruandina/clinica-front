@@ -7,6 +7,7 @@ import { DiagnosticoRoutingModule } from './diagnostico-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListarComponent } from './listar/listar.component';
 import { EditarComponent } from './editar/editar.component';
+import { FiltroDPipe } from './pipes/filtro-d.pipe';
 
 
 
@@ -15,7 +16,8 @@ import { EditarComponent } from './editar/editar.component';
     CrearComponent,
     DiagnosticoComponent,
     ListarComponent,
-    EditarComponent
+    EditarComponent,
+    FiltroDPipe
   ],
   imports: [
     CommonModule,

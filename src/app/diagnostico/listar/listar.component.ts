@@ -16,7 +16,9 @@ import * as pdfFonts from 'pdfmake/build/vfs_fonts';
 export class ListarComponent implements OnInit{
   private respuesta: respuesta<Diagnostico> | any;
   public diagnosticos: DiagnosticoPaciente[] = [];
-  public actualId: number;
+  
+  public page: number = 0;
+  public buscar: string = '';
 
   constructor(
     private ServiceDiagnostico: ServiceDiagnostico,
@@ -51,15 +53,7 @@ export class ListarComponent implements OnInit{
     });
   }
 
-  mostrarDetalle(id: number) {
-    this.actualId = id;
-  }
-
-  generarDiagnostico() {}
-
-  salirModal() {
-    //this.id = ""
-  }
+ 
 
   generarPDF(i: number) {
     const documentDefinition: any = {
@@ -96,5 +90,20 @@ export class ListarComponent implements OnInit{
 
     const pdf = pdfMake.createPdf(documentDefinition);
     pdf.open();
+  }
+
+  nextPage() {
+    this.page += 5;
+  }
+
+  prevPage() {
+    if (this.page > 0) {
+      this.page -= 5;
+    }
+  }
+
+  onBuscarPaciente(buscar: string) {
+    this.page = 0;
+    this.buscar = buscar;
   }
 }
